@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\SearchController;
@@ -21,6 +22,16 @@ Route::get('/', function () {
 
 //The search page route
 Route::get('/search', [SearchController::class, 'Search'])->name('search');
+
+
+
+
+//================ADMIN ALL ROUTES==================================================
+Route::get('/home', [AdminController::class, 'Redirect'])->name('home');
+
+//admin logout route
+Route::get('/logout', [AdminController::class, 'Logout'])->name('logout');
+
 
 Route::middleware([
     'auth:sanctum',

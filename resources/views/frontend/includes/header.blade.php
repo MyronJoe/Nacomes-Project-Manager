@@ -55,6 +55,16 @@
                 <a href="about.html" class="nav-item nav-link">About</a>
                 
                 <a href="contact.html" class="nav-item nav-link">Contact</a>
+                
+                @if (Route::has('login'))
+
+                @auth
+                    <a href="{{url('logout')}}" class="nav-item nav-link">Logout</a>
+                    
+                @else
+                <a href="{{url('login')}}" class="nav-item nav-link">Login</a>
+                @endauth
+                @endif
             </div>
             <a href="{{ route('search') }}" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Search Project<i class="fa fa-arrow-right ms-3"></i></a>
         </div>
