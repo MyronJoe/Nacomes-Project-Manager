@@ -15,7 +15,7 @@
     <div class="shadow-bottom"></div>
     <div class="main-menu-content">
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
-            <li class=" nav-item"><a class="d-flex align-items-center" href=""><i
+            <li class=" nav-item"><a class="d-flex align-items-center" href="{{ route('home') }}"><i
                         data-feather="home"></i><span class="menu-title text-truncate"
                         data-i18n="Dashboards">Dashboard</span><span
                         class="badge badge-light-warning rounded-pill ms-auto me-1"></span></a></li>
@@ -25,7 +25,7 @@
                     data-feather="more-horizontal"></i></li>
 
 
-            <li class=" nav-item"><a class="d-flex align-items-center" href="app-email.html"><i
+    <li class=" nav-item"><a class="d-flex align-items-center" href="{{ route('admin-view-project') }}"><i
                         data-feather="book"></i><span class="menu-title text-truncate"
                         data-i18n="book">Projects</span></a></li>
 
@@ -33,7 +33,7 @@
 
 
 
-            <li class=" nav-item"><a class="d-flex align-items-center" href="app-todo.html"><i
+            <li class=" nav-item"><a class="d-flex align-items-center" href="{{ route('admin-academics') }}"><i
                         data-feather="check-square"></i><span class="menu-title text-truncate"
                         data-i18n="Todo">Academic Session</span></a></li>
 

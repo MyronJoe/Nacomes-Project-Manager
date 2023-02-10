@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Backend\ProjectController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\SearchController;
@@ -27,10 +28,48 @@ Route::get('/search', [SearchController::class, 'Search'])->name('search');
 
 
 //================ADMIN ALL ROUTES============================================
+Route::middleware(['auth:sanctum', config('jetstream.auth_session')])->group(function () {
+    //admin index
 Route::get('/home', [AdminController::class, 'Redirect'])->name('home');
 
 //admin logout route
 Route::get('/logout', [AdminController::class, 'Logout'])->name('logout');
+
+//admin add academics session
+Route::get('/admin/academics', [AdminController::class, 'Academics'])->name('admin-academics');
+
+
+
+});
+//================END ADMIN ALL ROUTES============================================
+
+
+
+
+
+//================PROJECT ALL ROUTES============================================
+Route::middleware(['auth:sanctum', config('jetstream.auth_session')])->group(function () {
+
+//admin view projects
+Route::get('/admin/projects', [ProjectController::class, 'Projects'])->name('admin-view-project');
+
+
+
+});
+
+//================END PROJECT ALL ROUTES============================================
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 Route::middleware([
