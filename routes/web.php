@@ -40,6 +40,44 @@ Route::get('/home', [AdminController::class, 'Redirect'])->name('home');
 Route::get('/logout', [AdminController::class, 'Logout'])->name('logout');
 
 
+//admin add academics session
+Route::get('/admin/academics', [AdminController::class, 'Academics'])->name('admin-academics');
+
+
+
+});
+//================END ADMIN ALL ROUTES============================================
+
+
+
+
+
+//================PROJECT ALL ROUTES============================================
+Route::middleware(['auth:sanctum', config('jetstream.auth_session')])->group(function () {
+
+//admin view projects
+Route::get('/admin/projects', [ProjectController::class, 'Projects'])->name('admin-view-project');
+
+
+
+});
+
+//================END PROJECT ALL ROUTES============================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
