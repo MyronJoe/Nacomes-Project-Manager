@@ -6,21 +6,22 @@
 
     .card {
         background-color: #fff;
-        padding: 10px;
-        border: none
+        padding: 30px;
+        border: none;
+        width: auto;
     }
 
     .input-box {
-        position: relative
+        position: relative;
     }
 
     .input-box i {
         position: absolute;
         right: 13px;
-        top: 10px;
-        color: #ced4da
+        top: 30px;
+        color: #ced4da;
     }
-/* 
+/*
     .form-control {
         height: 30px;
         background-color: #eeeeee69
@@ -36,20 +37,20 @@
         padding-top: 20px;
         padding-bottom: 10px;
         display: flex;
-        align-items: center
+        align-items: center;
     }
 
     .border-bottom {
-        border-bottom: 2px solid #eee
+        border-bottom: 2px solid #eee;
     }
 
     .list i {
         font-size: 19px;
-        color: red
+        color: red;
     }
 
     .list small {
-        color: #dedddd
+        color: #dedddd;
     }
     </style>
 
@@ -66,9 +67,10 @@
                     @forelse($products as $item)
       <a href="{{ url('product/details/'. $item->id. '/'.$item->name) }}">
 
-    <div class="d-flex flex-column ml-3" style="margin-left: 10px"> <span>{{ $item->name }} </span>   </div>
+    <div class="d-flex flex-column ml-3" style="margin-left: 10px"> <span>{{ $item->title }} </span>   </div>
 
-    <div class="d-flex flex-column ml-3" style="margin-left: 10px"> <span>{{ $item->email }} </span>   </div>
+    {{-- <div class="d-flex flex-column ml-3" style="margin-left: 10px"> <span>{{ $item->description }} </span>   </div> --}}
+    <div class="d-flex flex-column ml-3" style="margin-left: 10px"> <span>{{ $item->year }} </span>   </div>
     </div></a>
 
     @empty
