@@ -39,4 +39,9 @@ class AdminController extends Controller
     {
         return view('backend.academics_session.academics');
     }
+
+    public function Add_session(){
+
+        return view('backend.academics_session.add_session');
+    }
 }

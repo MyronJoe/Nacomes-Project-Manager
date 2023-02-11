@@ -43,8 +43,11 @@ Route::get('/home', [AdminController::class, 'Redirect'])->name('home');
 Route::get('/logout', [AdminController::class, 'logout'])->name('logout');
 
 
-//admin add academics session
+//admin Manage academics session
 Route::get('/admin/academics', [AdminController::class, 'Academics'])->name('admin-academics');
+
+//admin add academics session
+Route::get('/admin/academics/add_session', [AdminController::class, 'Add_session'])->name('add_session');
 
 
 

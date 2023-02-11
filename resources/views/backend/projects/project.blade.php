@@ -30,7 +30,7 @@
             <a href=""></a>
 
 
-            <a href="{{ route('project-upload') }}" class="btn btn-primary  py-1" style="float: right"> Upload a Project
+            <a href="{{ route('project-upload') }}" class="btn btn-primary  py-1 mb-2" style="float: right"> Upload a Project
             </a>
 
 
@@ -99,22 +99,6 @@
         </div>
 
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
