@@ -26,7 +26,7 @@ Route::get('/search', [SearchController::class, 'Search'])->name('search');
 
 
 
-//================ADMIN ALL ROUTES============================================
+//================ADMIN ALL ROUTES===========================================
 Route::get('/home', [AdminController::class, 'Redirect'])->name('home');
 
 //admin logout route
