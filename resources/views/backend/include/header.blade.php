@@ -90,7 +90,7 @@
                             Settings</a>
 
                             <a
-                            class="dropdown-item" href="auth-login-cover.html"><i class="me-50"
+                            class="dropdown-item" href="{{url('logout')}}"><i class="me-50"
                                 data-feather="power"></i> Logout</a>
                     </div>
                 </li>
