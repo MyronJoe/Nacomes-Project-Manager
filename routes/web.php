@@ -5,6 +5,7 @@ use App\Http\Controllers\Backend\ProjectController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\SearchController;
+use App\Models\Academics;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,8 +47,13 @@ Route::get('/logout', [AdminController::class, 'logout'])->name('logout');
 //admin Manage academics session
 Route::get('/admin/academics', [AdminController::class, 'Academics'])->name('admin-academics');
 
+
 //admin add academics session
 Route::get('/admin/academics/add_session', [AdminController::class, 'Add_session'])->name('add_session');
+
+
+//admin add academics session
+Route::post('/admin/academics/save_session', [AdminController::class, 'Save_session'])->name('save_session');
 
 
 
@@ -69,7 +75,11 @@ Route::post('/admin/project/store', [ProjectController::class, 'AdminStoreProjec
 
 //upload project form
 Route::get('/admin/project/upload', function () {
-    return view('backend.projects.store_project');
+
+    $datas = Academics::orderBy('id', 'desc')->get();
+
+    return view('backend.projects.store_project', compact('datas'));
+    
 })->name('project-upload');
 
 //download projet projects
