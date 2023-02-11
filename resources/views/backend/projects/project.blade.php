@@ -156,7 +156,7 @@
                                 <label class="form-label mb-1" >Project Title</label>
            <input type="text" id="" class="form-control" placeholder="Title"
                                   name="title"
-                                />
+                               required />
                               </div>
                             </div>
 
@@ -179,7 +179,7 @@
                                   <label class="form-label mb-1" >Student Name</label>
              <input type="text" id="" class="form-control" placeholder="Student"
                                     name="student"
-                                  />
+                                 required />
                                 </div>
                               </div>
 
@@ -187,7 +187,7 @@
                               <div class="col-md-12 col-12">
                                 <div class="mb-2">
                                   <label class="form-label mb-1" >Project Description</label>
-             <textarea name="description" id="editor" cols="10" rows="3" class="form-control"></textarea>
+             <textarea name="description" id="editor" cols="10" rows="3" class="form-control" required></textarea>
                                 </div>
                               </div>
 
@@ -196,7 +196,7 @@
                                   <label class="form-label mb-1" >Project File</label>
              <input type="file"  class="form-control" placeholder="Year"
                                     name="project_file"
-                                  />
+                                 required />
                                 </div>
                               </div>
 
