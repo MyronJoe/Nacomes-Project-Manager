@@ -69,7 +69,8 @@ Route::get('/admin/project/upload', function () {
     return view('backend.projects.store_project');
 })->name('project-upload');
 
-
+//download projet projects
+Route::get('/download/now/{id}', [ProjectController::class, 'DownloadProjects'])->name('download');
 
 });
 
