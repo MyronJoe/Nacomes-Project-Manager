@@ -37,8 +37,8 @@
     <a href="" ></a>
 
 
-<button type="button" class="btn btn-primary  py-1" style="float: right" data-bs-toggle="modal" data-bs-target="#fullscreenModal"> Upload a Project
-  </button>
+<a href="{{ route('project-upload') }}"  class="btn btn-primary  py-1" style="float: right" > Upload a Project
+  </a>
 
 
 
@@ -149,6 +149,7 @@
                       <div class="card-body">
 
                         <form class="form" action="{{ route('store-project') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
 
                           <div class="row">
                             <div class="col-md-12 col-12">

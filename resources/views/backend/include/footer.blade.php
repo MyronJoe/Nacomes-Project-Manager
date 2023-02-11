@@ -35,6 +35,12 @@
 
     <!-- BEGIN: Page JS-->
     <script src="../../../app-assets/js/scripts/pages/dashboard-ecommerce.min.js"></script>
+
+    <script src="../../../app-assets/vendors/js/extensions/sweetalert2.all.min.js"></script>
+    <script src="../../../app-assets/vendors/js/extensions/polyfill.min.js"></script>
+
+
+    <script src="../../../app-assets/js/scripts/extensions/ext-component-sweet-alerts.min.js"></script>
     <!-- END: Page JS-->
 
     <script>
