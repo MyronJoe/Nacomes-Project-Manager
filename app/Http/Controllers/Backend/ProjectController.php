@@ -12,7 +12,9 @@ class ProjectController extends Controller
 {
     //admin view project
     public function Projects(){
-        return view('backend.projects.project');
+        $projects = Project::latest()->simplePaginate(5);
+
+        return view('backend.projects.project', compact('projects'));
     }
 
 
@@ -25,7 +27,7 @@ public function AdminStoreProjects(Request $request){
         'year' => ['required', 'string'],
         'student' => ['required', 'string','min:3'],
         'description' => ['required', 'string','min:3'],
-        'project_file' => ['required', 'file', 'mimes:zip'],
+        // 'project_file' => ['required', 'file', 'mimes:zip'],
 ]);
 
 
@@ -39,7 +41,22 @@ elseif(Project::where('student', $request->student )->exists()){
     return redirect()->back()->with('error', 'Student Name Already Exist');
 }
 else{
-    
+
+$thisyear = date('Y');
+//insert to db
+Project::create([
+     'title' => $request->title,
+     'year' => $request->year,
+     'this_year' => $thisyear,
+
+     'student' => $request->student,
+     'description' => $request->description,
+     'title' => $request->title,
+
+]);
+
+return redirect()->route('admin-view-project')->with('success', 'Project Uploaded Successfully.');
+
 }
 
 

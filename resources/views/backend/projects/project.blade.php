@@ -73,27 +73,31 @@
 
                         </thead>
                         <tbody>
+                @foreach ($projects as $project)
+
 
                                 <tr>
 
-                                    <td></td>
+                                    <td>{{ $project->title }}</td>
 
 
 
-                                    <td></td>
+                                    <td>{{ $project->student }}</td>
                                     <td>
                                         <a href=" class="btn btn-info"><i
                                                 class="fa fa-eye"></i>View</a>
                                     </td>
                                 </tr>
 
-
+                                @endforeach
                         </tbody>
+
                     </table>
+
                 </div>
             </div>
             <!-- /.box-body -->
-            {{-- <!--{{ $users->links() }}--> --}}
+            {{-- {{ $projects->links() }} --}}
         </div>
 
         <!-- /.box -->
