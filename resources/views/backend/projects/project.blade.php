@@ -77,8 +77,11 @@
                                         <td>{{ $project->student }}</td>
                                         <td>{{ $project->created_at->diffForHumans() }}</td>
                                         <td>
-                                            <a href="{{ route('download', $project->id) }}" class="btn btn-primary btn-sm"><i
-                                                    class="fa fa-eye"></i>download</a>
+                                            {{-- <a href="{{ route('download', $project->id) }}" class="btn btn-primary btn-sm"><i
+                                                    class="fa fa-eye"></i>download</a> --}}
+
+                                                    <a href="{{ route('edit-project', $project->id) }}" class="btn btn-primary btn-sm"><i
+                                                        class="fa fa-eye"></i>Edit</a>
 
                                             <a href="{{ route('admin-delete-project', $project->id) }}" class="btn btn-danger btn-sm" id="delete"><i
                                                     class="fa fa-eye"></i>Delete</a>
