@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Backend\Project;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\File;
@@ -42,10 +43,10 @@ elseif(Project::where('student', $request->student )->exists()){
 }
 else{
 
-    $file  = $request->file('project_file');
-    $filename = hexdec(uniqid()).'.'.$file->getClientOriginalExtension();
-   $file_url =  $request->project_file->move('uploads/'.$filename);
-   $save_url = 'uploads/'.$filename;
+    $file  = $request->project_file;
+    $filename = time().'.'.$file->getClientOriginalExtension();
+     $request->project_file->move('uploads', $filename);
+
 
 
 $thisyear = date('Y');
@@ -58,7 +59,7 @@ Project::create([
      'student' => $request->student,
      'description' => $request->description,
      'title' => $request->title,
-     'project_file' =>  $save_url ,
+     'project_file' =>  $filename ,
 
 ]);
 
@@ -76,11 +77,9 @@ return redirect()->route('admin-view-project')->with('success', 'Project Uploade
 //download
 public function DownloadProjects($id){
    $f = Project::findOrFail($id);
-   $filePath = public_path($f->project_file);
-   $headers = ['Content-Type: application/pdf'];
-   $fileName = time().'.zip';
 
-   return response()->download($filePath, $fileName, $headers);
+
+   return response()->download(public_path('uploads/'.$f->project_file));
 
 
 
