@@ -26,9 +26,41 @@ class AdminController extends Controller
     public function logout()
     {
         Session::flush();
-        
+
         Auth::logout();
 
         return redirect('/');
     }
+
+
+//admin manage academics session
+public function Academics(){
+    return view('backend.academics_session.academics');
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
