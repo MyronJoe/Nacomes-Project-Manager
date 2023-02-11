@@ -43,6 +43,71 @@
           feather.replace({ width: 14, height: 14 });
         }
       })
+
+
+      $(function() {
+
+@if (Session::has('success'))
+    Swal.fire({
+        icon: 'success',
+        title: 'Great!',
+        text: '{{ Session::get('success') }}'
+    })
+@endif
+});
+
+@if (Session::has('error'))
+Swal.fire({
+    icon: 'error',
+    title: 'Oops...',
+    text: '{{ Session::get('error') }}'
+})
+@endif
+
+@if (Session::has('warning'))
+Swal.fire({
+    icon: 'warning',
+    title: 'Oops...',
+    text: '{{ Session::get('warning') }}'
+})
+@endif
+
+
+
+
+
+//delete
+$(function() {
+$(document).on('click', '#delete', function(e) {
+    e.preventDefault();
+    var link = $(this).attr("href");
+
+
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "To Deleted This Data!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        cancelButtonText: 'No',
+        confirmButtonText: 'Yes, Delete!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire(
+                'Deleted!',
+                'Data Has Been Deleted Successfully.',
+                'success'
+            )
+            window.location.href = link
+        }
+    });
+
+
+});
+
+});
+
     </script>
   </body>
 
