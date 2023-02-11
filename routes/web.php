@@ -21,11 +21,14 @@ Route::get('/', function () {
     return view('frontend.index');
 });
 
+//================FRONTEND ALL ROUTES============================================
 //The search page route
 Route::get('/search', [SearchController::class, 'Search'])->name('search');
 
+//Search project show
+Route::post('/search-product', [SearchController::class, 'SearchProject'])->name('search-p');
 
-
+//================END FRONTEND ALL ROUTES============================================
 
 
 //================ADMIN ALL ROUTES============================================
