@@ -40,7 +40,7 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session')])->group(fun
 Route::get('/home', [AdminController::class, 'Redirect'])->name('home');
 
 //admin logout route
-Route::get('/logout', [AdminController::class, 'Logout'])->name('logout');
+Route::get('/logout', [AdminController::class, 'logout'])->name('logout');
 
 
 //admin add academics session

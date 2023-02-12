@@ -11,13 +11,13 @@ use Illuminate\Support\Facades\Auth;
 class AdminController extends Controller
 {
     //Login pattern functions
-    public function Redirect(){
+    public function Redirect()
+    {
         $userType = Auth::user()->user_type;
 
         if ($userType === '1') {
             return view('backend.index');
-        }
-        else{
+        } else {
             return view('frontend.index');
         }
     }
@@ -32,35 +32,9 @@ class AdminController extends Controller
         return redirect('/');
     }
 
-
-//admin manage academics session
-public function Academics(){
-    return view('backend.academics_session.academics');
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    //admin manage academics session
+    public function Academics()
+    {
+        return view('backend.academics_session.academics');
+    }
 }
