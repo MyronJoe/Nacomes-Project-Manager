@@ -31,9 +31,9 @@
                                         <td>{{$key + 1}}</td>
                                         <td>{{$data->session}}</td>
                                         <td class="d-flex">
-                                            <a href="" class="btn btn-primary btn-sm"><i class="fa fa-eye"></i>Edit</a>
+                                            <a href="{{route('edit_session', $data->id)}}" class="btn btn-primary btn-sm"><i class="fa fa-eye"></i>Edit</a>
                                                 <span class="m-1 d-block"></span>
-                                            <a href="" class="btn btn-danger btn-sm" id="delete"><i class="fa fa-eye"></i>Delete</a>
+                                            <a href="{{route('delete_session', $data->id)}}" class="btn btn-danger btn-sm" id="delete"><i class="fa fa-eye"></i>Delete</a>
                                         </td>
                                     </tr>
                                 @endforeach

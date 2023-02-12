@@ -37,27 +37,91 @@ class AdminController extends Controller
     }
 
     //admin manage academics session
-    public function Academics(){
+    public function Academics()
+    {
 
         $datas = Academics::orderBy('id', 'desc')->get();
 
         return view('backend.academics_session.academics', compact('datas'));
     }
 
-    public function Add_session(){
+    //the add session page route
+    public function Add_session()
+    {
 
         return view('backend.academics_session.add_session');
     }
 
 
-    public function Save_session(Request $request){
+    //the add session to database function
+    public function Save_session(Request $request)
+    {
 
-        $data = new Academics();
 
-        $data->session = $request->year;
+        //checks if the session already exist b4 adding to database
+        $year = Academics::where('session', $request->year)->exists();
 
-        $data->save();
+        if ($year) {
+            return redirect()->back()->with('message', 'Accademic Session Already Exist');
+        } else {
+            $data = new Academics();
 
-        return redirect()->route('admin-academics')->with('message', 'Accademic Session Added Successfully');
+            $data->session = $request->year;
+
+            $data->save();
+
+            return redirect()->route('admin-academics')->with('message', 'Accademic Session Added Successfully');
+        }
     }
+
+
+    //Delete session function
+    public function Delete_session($id)
+    {
+
+        $data = Academics::find($id);
+
+        $data->delete();
+
+        return redirect()->route('admin-academics')->with('message', 'Accademic Session Deleted Successfully');
+    }
+
+
+    //edit session page function
+    public function Edit_session($id)
+    {
+
+        $data = Academics::find($id);
+
+
+        return view('backend.academics_session.edit_session', compact('data'));
+    }
+
+
+    //Update session in database function
+    public function Update_session(Request $request, $id)
+    {
+
+        $data = Academics::find($id);
+
+        //checks if the session already exist && != any other session in the database b4 adding to database
+        $year = Academics::where('session', $request->year)->exists();
+
+        // dd($data->session);
+        // dd($request->year);
+
+        if ($year && $data->session !== $request->year) {
+            return redirect()->back()->with('message', 'Accademic Session Already Exist');
+        } else {
+            $data->session = $request->year;
+
+            $data->save();
+
+            return redirect()->route('admin-academics')->with('message', 'Accademic Session Updated Successfully');
+        }
+    }
+
+
+
+    
 }
