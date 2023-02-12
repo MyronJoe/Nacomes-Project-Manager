@@ -70,7 +70,7 @@ class AdminController extends Controller
 
             $data->save();
 
-            return redirect()->route('admin-academics')->with('message', 'Accademic Session Added Successfully');
+            return redirect()->route('admin-academics')->with('success', 'Accademic Session Added Successfully');
         }
     }
 
@@ -83,7 +83,7 @@ class AdminController extends Controller
 
         $data->delete();
 
-        return redirect()->route('admin-academics')->with('message', 'Accademic Session Deleted Successfully');
+        return redirect()->route('admin-academics')->with('success', 'Accademic Session Deleted Successfully');
     }
 
 
@@ -111,17 +111,17 @@ class AdminController extends Controller
         // dd($request->year);
 
         if ($year && $data->session !== $request->year) {
-            return redirect()->back()->with('message', 'Accademic Session Already Exist');
+            return redirect()->back()->with('error', 'Accademic Session Already Exist');
         } else {
             $data->session = $request->year;
 
             $data->save();
 
-            return redirect()->route('admin-academics')->with('message', 'Accademic Session Updated Successfully');
+            return redirect()->route('admin-academics')->with('success', 'Accademic Session Updated Successfully');
         }
     }
 
 
 
-    
+
 }
