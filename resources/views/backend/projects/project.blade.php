@@ -58,6 +58,7 @@
                                 <tr>
 
                                     <th>Title</th>
+                                    <th>Academic Year</th>
                                     <th>Student</th>
                                     <th>Date</th>
 
@@ -72,7 +73,7 @@
 
                                         <td>{{ $project->title }} </td>
 
-
+                                        <td>{{ $project->year }}</td>
 
                                         <td>{{ $project->student }}</td>
                                         <td>{{ $project->created_at->diffForHumans() }}</td>

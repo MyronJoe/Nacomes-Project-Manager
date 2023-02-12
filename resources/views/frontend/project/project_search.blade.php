@@ -67,10 +67,10 @@
                     @forelse($products as $item)
       <a href="{{ url('product/details/'. $item->id. '/'.$item->name) }}">
 
-    <div class="d-flex flex-column ml-3" style="margin-left: 10px"> <span>{{ $item->title }} </span>   </div>
+    <div class="d-flex flex-column ml-3" style="margin-left: 10px"> <span>Title: {{ $item->title }} </span>   </div>
 
     {{-- <div class="d-flex flex-column ml-3" style="margin-left: 10px"> <span>{{ $item->description }} </span>   </div> --}}
-    <div class="d-flex flex-column ml-3" style="margin-left: 10px"> <span>{{ $item->year }} </span>   </div>
+    <div class="d-flex flex-column ml-3" style="margin-left: 10px"> <span>Year: {{ $item->year }} </span>   </div>
     </div></a>
 
     @empty
