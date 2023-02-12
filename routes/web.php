@@ -88,6 +88,12 @@ Route::get('/download/now/{id}', [ProjectController::class, 'DownloadProjects'])
 //admin delete projet projects
 Route::get('/admin/delete/project/{id}', [ProjectController::class, 'AdminDeleteProjects'])->name('admin-delete-project');
 
+//admin delete projet projects
+Route::get('/admin/edit/project/{id}', [ProjectController::class, 'AdminEditProjects'])->name('edit-project');
+
+//admin update projet projects
+Route::post('/admin/update/project/{id}', [ProjectController::class, 'AdminUpdateProjects'])->name('update-project');
+
 
 });
 
