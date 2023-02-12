@@ -66,12 +66,23 @@
 
                     @forelse($products as $item)
       <a href="{{ url('product/details/'. $item->id. '/'.$item->name) }}">
-
+{{--
     <div class="d-flex flex-column ml-3" style="margin-left: 10px"> <span>Title: {{ $item->title }} </span>   </div>
 
-    {{-- <div class="d-flex flex-column ml-3" style="margin-left: 10px"> <span>{{ $item->description }} </span>   </div> --}}
+    <div class="d-flex flex-column ml-3" style="margin-left: 10px"> <span>{{ $item->description }} </span>   </div>
     <div class="d-flex flex-column ml-3" style="margin-left: 10px"> <span>Year: {{ $item->year }} </span>   </div>
-    </div></a>
+    </div> --}}
+
+    <table>
+        <tr>
+            <td>  TITLE: {{ $item->title }}</td>
+            <hr>
+            <td>  | YEAR: {{ $item->year }}</td>
+        </tr>
+    </table>
+
+
+</a>
 
     @empty
          <h3 class="text-danger text-center">No Project Found</h3>
