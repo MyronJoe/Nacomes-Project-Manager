@@ -37,9 +37,11 @@ class AdminController extends Controller
     }
 
     //admin manage academics session
-    public function Academics()
-    {
-        return view('backend.academics_session.academics');
+    public function Academics(){
+
+        $datas = Academics::orderBy('id', 'desc')->get();
+
+        return view('backend.academics_session.academics', compact('datas'));
     }
 
     public function Add_session(){

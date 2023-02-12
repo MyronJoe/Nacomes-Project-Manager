@@ -5,6 +5,7 @@ use App\Http\Controllers\Backend\ProjectController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\SearchController;
+use App\Models\Academics;
 
 /*
 |--------------------------------------------------------------------------
@@ -74,7 +75,11 @@ Route::post('/admin/project/store', [ProjectController::class, 'AdminStoreProjec
 
 //upload project form
 Route::get('/admin/project/upload', function () {
-    return view('backend.projects.store_project');
+
+    $datas = Academics::orderBy('id', 'desc')->get();
+
+    return view('backend.projects.store_project', compact('datas'));
+    
 })->name('project-upload');
 
 //download projet projects
