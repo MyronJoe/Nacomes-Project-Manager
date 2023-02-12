@@ -11,7 +11,7 @@
                     <h3 class="card-title ">Academic Sessions</h3>
                 </div>
                 <div class="card-body">
-                    <form class="form" action="{{ route('store-project') }}" method="POST" enctype="multipart/form-data">
+                    <form class="form" action="{{ route('save_session') }}" method="POST" enctype="multipart/form-data">
                         @csrf
 
                         <div class="row">

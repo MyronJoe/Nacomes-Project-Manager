@@ -46,8 +46,13 @@ Route::get('/logout', [AdminController::class, 'logout'])->name('logout');
 //admin Manage academics session
 Route::get('/admin/academics', [AdminController::class, 'Academics'])->name('admin-academics');
 
+
 //admin add academics session
 Route::get('/admin/academics/add_session', [AdminController::class, 'Add_session'])->name('add_session');
+
+
+//admin add academics session
+Route::post('/admin/academics/save_session', [AdminController::class, 'Save_session'])->name('save_session');
 
 
 
