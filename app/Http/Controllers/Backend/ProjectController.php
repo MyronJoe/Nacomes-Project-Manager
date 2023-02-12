@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Academics;
 use App\Models\Backend\Project;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
@@ -110,8 +111,8 @@ public function AdminDeleteProjects($id){
 //admin edit project
 public function AdminEditProjects($id){
     $edit = Project::findOrFail($id);
-
-    return view('backend.projects.edit_project', compact('edit'));
+     $academics = Academics::latest()->get();
+    return view('backend.projects.edit_project', compact('edit', 'academics'));
 }
 
 
