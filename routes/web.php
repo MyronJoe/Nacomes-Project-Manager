@@ -65,7 +65,7 @@ Route::post('/admin/academics/save_session', [AdminController::class, 'Save_sess
 
 
 //================PROJECT ALL ROUTES============================================
-Route::middleware(['auth:sanctum', config('jetstream.auth_session')])->group(function () {
+Route::middleware(['auth:sanctum', 'checkregister', config('jetstream.auth_session')])->group(function () {
 
 //admin view projects
 Route::get('/admin/projects', [ProjectController::class, 'Projects'])->name('admin-view-project');
