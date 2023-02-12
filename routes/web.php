@@ -60,8 +60,12 @@ Route::post('/admin/academics/save_session', [AdminController::class, 'Save_sess
 Route::get('/admin/academics/delete_session/{id}', [AdminController::class, 'Delete_session'])->name('delete_session');
 
 
-//admin edit academics session
+//admin edit academics session page
 Route::get('/admin/academics/edit_session/{id}', [AdminController::class, 'Edit_session'])->name('edit_session');
+
+
+//admin update academics session in database
+Route::post('/admin/academics/update_session/{id}', [AdminController::class, 'Update_session'])->name('update_session');
 
 
 

@@ -56,11 +56,27 @@ class AdminController extends Controller
 
         $data = new Academics();
 
-        $data->session = $request->year;
+        $all_datas = Academics::all();
 
-        $data->save();
+        
 
-        return redirect()->route('admin-academics')->with('message', 'Accademic Session Added Successfully');
+        foreach ($all_datas as $all_data) {
+
+            $session = $all_data->session;
+            
+            if($session = $request->year){
+                return redirect()->back()->with('message', 'Accademic Session dey');
+            }else{
+
+                $data->session = $request->year;
+
+                $data->save();
+
+                return redirect()->route('admin-academics')->with('message', 'Accademic Session Added Successfully');
+
+            }
+        }
+
     }
 
 
@@ -75,14 +91,26 @@ class AdminController extends Controller
     }
 
 
-    //Delete session function
+    //edit session page function
     public function Edit_session($id){
 
         $data = Academics::find($id);
 
-        
 
-        return view('backend.academics_session.add_session');
+        return view('backend.academics_session.edit_session', compact('data'));
+    }
+
+
+    //Update session in database function
+    public function Update_session(Request $request, $id){
+
+        $data = Academics::find($id);
+
+        $data->session = $request->year;
+
+        $data->save();
+
+        return redirect()->route('admin-academics')->with('message', 'Accademic Session Updated Successfully');
     }
 
 
