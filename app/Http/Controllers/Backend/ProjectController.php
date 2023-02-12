@@ -81,9 +81,49 @@ public function DownloadProjects($id){
 
    return response()->download(public_path('uploads/'.$f->project_file));
 
+}
+
+
+//admin delete project
+public function AdminDeleteProjects($id){
+    $project = Project::findOrFail($id);
+    $file = public_path('uploads/'. $project->project_file);
+
+    if (Project::where('project_file', $project->project_file )->exists()){
+        unlink($file);
+        Project::findOrFail($id)->delete();
+
+        return redirect()->back()->with('success', 'Project Deleted Successfully.');
+
+
+    }else{
+
+        Project::findOrFail($id)->delete();
+
+        return redirect()->back()->with('success', 'Project Deleted Successfully.');
+
+    }
+
+
+
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -85,6 +85,10 @@ Route::get('/admin/project/upload', function () {
 //download projet projects
 Route::get('/download/now/{id}', [ProjectController::class, 'DownloadProjects'])->name('download');
 
+//admin delete projet projects
+Route::get('/admin/delete/project/{id}', [ProjectController::class, 'AdminDeleteProjects'])->name('admin-delete-project');
+
+
 });
 
 //================END PROJECT ALL ROUTES============================================

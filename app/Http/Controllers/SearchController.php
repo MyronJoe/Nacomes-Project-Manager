@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Backend\Project;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -19,8 +20,8 @@ public function SearchProject(Request $request){
     //validate
     $item = $request->search;
 
-    $products = User::where('name', 'LIKE', "%$item%")->
-    select('name', 'email',  'id')->get();
+    $products = Project::where('title', 'LIKE', "%$item%")->
+    select('title',  'year' , 'id')->get();
 
         return view('frontend.project.project_search', compact('products'));
 }
