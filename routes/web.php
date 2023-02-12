@@ -56,6 +56,14 @@ Route::get('/admin/academics/add_session', [AdminController::class, 'Add_session
 Route::post('/admin/academics/save_session', [AdminController::class, 'Save_session'])->name('save_session');
 
 
+//admin delete academics session
+Route::get('/admin/academics/delete_session/{id}', [AdminController::class, 'Delete_session'])->name('delete_session');
+
+
+//admin edit academics session
+Route::get('/admin/academics/edit_session/{id}', [AdminController::class, 'Edit_session'])->name('edit_session');
+
+
 
 });
 //================END ADMIN ALL ROUTES============================================
