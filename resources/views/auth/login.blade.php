@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,117 +39,135 @@
     <!-- Template Stylesheet -->
     <link href="frontend/css/style.css" rel="stylesheet">
     <style>
-        .logo{
+        .logo {
             font-size: 30px;
             font-weight: bold;
         }
-        .min-h-screen{
+
+        .min-h-screen {
             min-height: auto !important;
             padding: 5em 2em !important;
         }
-        .bg-gray-100{
+
+        .bg-gray-100 {
             background: none !important;
         }
 
-.menu-list{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.menu-list a{
-    color: black;
-    text-decoration: none;
-    font-weight: 500;
-}
-.menu-list a:hover{
-    color: #3B840C;
-}
-.menu-list a:last-child:hover{
-    color: #fff;
-}
-.menu-icon, #show-menu{
-    display: none;
-}
+        .menu-list {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-@media screen and (max-width: 850px){
-    nav{
-        position: fixed;
-    }
-    .menu-icon{
-        display: block;
-        font-size: 25px;
-        padding: .5em 1em;
-    }
-    .logo{
-            font-size: 25px;
-            font-weight: bold;
-    }
-    .menu-list{
-        /* position: fixed; */
-        max-height: 0;
-        overflow: hidden;
-        width: 100%;
-        top: 75px;
-        text-align: left;
-        font-size: 18px;
-        font-weight: 500;
-        /* left: -100%; */
-        transition: .5s ease-out;
-        display: block;
-        justify-content: start;
-        align-items: flex-start;
-        padding-left: 10px;
-    }
-    .menu-list a{
-        display: block;
-        position: relative;
-    }
-    .menu-list a:hover::before{
-        content: '';
-        position: absolute;
-        height: 20px;
-        width: 20px;
-        background-color: #3B840C;
-        top: 15px;
-        right: 5px;
-        transform: rotate(45deg);
-    }
-    .menu-list a:hover::after{
-        content: '';
-        position: absolute;
-        height: 30px;
-        width: 19px;
-        background-color: white;
-        top: 10px;
-        right: 0;
-    }
-    .menu-list a:hover{
-        color: #3B840C;
-        background-color: white;
-    }
-    nav{
-        padding: 0;
-    }
-    nav #show-menu:checked ~ .menu-icon i::before{
-        content:'\f00d';
-        color: #3B840C;
-    }
-    nav #show-menu:checked ~ .menu-list{
-        /* left: 0px; */
-        max-height: 50vh;
-        overflow: hidden;
-        border-top: 1px solid #ddd;
-        background-color: white;
-    }
-    .mb1{
-        margin-top: 20px;
-    }
-    .mb2{
-        margin-bottom: 20px;
-    }
+        .menu-list a {
+            color: black;
+            text-decoration: none;
+            font-weight: 500;
+        }
 
-}
-       
+        .menu-list a:hover {
+            color: #3B840C;
+        }
+
+        .menu-list a:last-child:hover {
+            color: #fff;
+        }
+
+        .menu-icon,
+        #show-menu {
+            display: none;
+        }
+
+        @media screen and (max-width: 850px) {
+            nav {
+                position: fixed;
+            }
+
+            .menu-icon {
+                display: block;
+                font-size: 25px;
+                padding: .5em 1em;
+            }
+
+            .logo {
+                font-size: 25px;
+                font-weight: bold;
+            }
+
+            .menu-list {
+                /* position: fixed; */
+                max-height: 0;
+                overflow: hidden;
+                width: 100%;
+                top: 75px;
+                text-align: left;
+                font-size: 18px;
+                font-weight: 500;
+                /* left: -100%; */
+                transition: .5s ease-out;
+                display: block;
+                justify-content: start;
+                align-items: flex-start;
+                padding-left: 10px;
+            }
+
+            .menu-list a {
+                display: block;
+                position: relative;
+            }
+
+            .menu-list a:hover::before {
+                content: '';
+                position: absolute;
+                height: 20px;
+                width: 20px;
+                background-color: #3B840C;
+                top: 15px;
+                right: 5px;
+                transform: rotate(45deg);
+            }
+
+            .menu-list a:hover::after {
+                content: '';
+                position: absolute;
+                height: 30px;
+                width: 19px;
+                background-color: white;
+                top: 10px;
+                right: 0;
+            }
+
+            .menu-list a:hover {
+                color: #3B840C;
+                background-color: white;
+            }
+
+            nav {
+                padding: 0;
+            }
+
+            nav #show-menu:checked~.menu-icon i::before {
+                content: '\f00d';
+                color: #3B840C;
+            }
+
+            nav #show-menu:checked~.menu-list {
+                /* left: 0px; */
+                max-height: 50vh;
+                overflow: hidden;
+                border-top: 1px solid #ddd;
+                background-color: white;
+            }
+
+            .mb1 {
+                margin-top: 20px;
+            }
+
+            .mb2 {
+                margin-bottom: 20px;
+            }
+
+        }
     </style>
 </head>
 
@@ -195,91 +212,91 @@
         </div> -->
 
         <input type="checkbox" id="show-menu">
-            <label for="show-menu" class="menu-icon"><i class="fa fa-bars"></i></label> 
-    
-            <div class="menu-list">
+        <label for="show-menu" class="menu-icon"><i class="fa fa-bars"></i></label>
+
+        <div class="menu-list">
             <a href="{{url('/')}}" class="nav-item nav-link active text-primary mb1">Home</a>
-                <a href="about.html" class="nav-item nav-link ">About</a>
+            <a href="about.html" class="nav-item nav-link ">About</a>
 
-                <a href="contact.html" class="nav-item nav-link">Contact</a>
+            <a href="contact.html" class="nav-item nav-link">Contact</a>
 
-                @if (Route::has('login'))
+            @if (Route::has('login'))
 
-                @auth
-                    <a href="{{url('logout')}}" class="nav-item nav-link mb2">Logout</a>
+            @auth
+            <a href="{{url('logout')}}" class="nav-item nav-link mb2">Logout</a>
 
-                @else
-                <a href="{{url('login')}}" class="nav-item nav-link mb2">Login</a>
-                @endauth
-                @endif
+            @else
+            <a href="{{url('login')}}" class="nav-item nav-link mb2">Login</a>
+            @endauth
+            @endif
 
-                <a href="{{ route('search') }}" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Search Project<i class="fa fa-arrow-right ms-3"></i></a>
-            </div>
+            <a href="{{ route('search') }}" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Search Project<i class="fa fa-arrow-right ms-3"></i></a>
+        </div>
     </nav>
     <!-- Navbar End -->
 
 
 
-<div>
+    <div>
 
 
-<x-guest-layout >
-    <x-jet-authentication-card >
-        <x-slot name="logo">
-            <!-- <x-jet-authentication-card-logo /> -->
-        </x-slot>
+        <x-guest-layout>
+            <x-jet-authentication-card>
+                <x-slot name="logo">
+                    <!-- <x-jet-authentication-card-logo /> -->
+                </x-slot>
 
-        <x-jet-validation-errors class="mb-4" />
+                <x-jet-validation-errors class="mb-4" />
 
-        @if (session('status'))
-            <div class="mb-4 font-medium text-sm text-green-600">
-                {{ session('status') }}
-            </div>
-        @endif
-
-        <form method="POST" action="{{ route('login') }}">
-            @csrf
-
-            <div>
-                <x-jet-label for="email" value="{{ __('Email') }}" />
-                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
-            </div>
-
-            <div class="mt-4">
-                <x-jet-label for="password" value="{{ __('Password') }}" />
-                <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
-            </div>
-
-            <div class="block mt-4">
-                <label for="remember_me" class="flex items-center">
-                    <x-jet-checkbox id="remember_me" name="remember" />
-                    <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-                </label>
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
-                    </a>
+                @if (session('status'))
+                <div class="mb-4 font-medium text-sm text-green-600">
+                    {{ session('status') }}
+                </div>
                 @endif
 
-                <x-jet-button class="ml-4">
-                    {{ __('Log in') }}
-                </x-jet-button>
+                <form method="POST" action="{{ route('login') }}">
+                    @csrf
 
-                
-            </div>
-            <div>
-            <a href="{{url('/register')}}"><small>Do not have an account?</small></a>
-            </div>
-        </form>
-    </x-jet-authentication-card>
-</x-guest-layout>
+                    <div>
+                        <x-jet-label for="email" value="{{ __('Email') }}" />
+                        <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+                    </div>
+
+                    <div class="mt-4">
+                        <x-jet-label for="password" value="{{ __('Password') }}" />
+                        <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
+                    </div>
+
+                    <div class="block mt-4">
+                        <label for="remember_me" class="flex items-center">
+                            <x-jet-checkbox id="remember_me" name="remember" />
+                            <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
+                        </label>
+                    </div>
+
+                    <div class="flex items-center justify-end mt-4">
+                        @if (Route::has('password.request'))
+                        <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
+                            {{ __('Forgot your password?') }}
+                        </a>
+                        @endif
+
+                        <x-jet-button class="ml-4">
+                            {{ __('Log in') }}
+                        </x-jet-button>
+
+
+                    </div>
+                    <div>
+                        <a href="{{url('/register')}}"><small>Do not have an account?</small></a>
+                    </div>
+                </form>
+            </x-jet-authentication-card>
+        </x-guest-layout>
 
 
 
-</div>
+    </div>
 
-<!-- Footer Start -->
-@include('frontend.includes.footer')
+    <!-- Footer Start -->
+    @include('frontend.includes.footer')
