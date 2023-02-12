@@ -37,8 +37,8 @@
     <a href="" ></a>
 
 
-<button type="button" class="btn btn-primary  py-1" style="float: right" data-bs-toggle="modal" data-bs-target="#fullscreenModal"> Upload a Project
-  </button>
+<a href="{{ route('project-upload') }}"  class="btn btn-primary  py-1" style="float: right" > Upload a Project
+  </a>
 
 
 
@@ -73,27 +73,31 @@
 
                         </thead>
                         <tbody>
+                @foreach ($projects as $project)
+
 
                                 <tr>
 
-                                    <td></td>
+                                    <td>{{ $project->title }}</td>
 
 
 
-                                    <td></td>
+                                    <td>{{ $project->student }}</td>
                                     <td>
                                         <a href=" class="btn btn-info"><i
                                                 class="fa fa-eye"></i>View</a>
                                     </td>
                                 </tr>
 
-
+                                @endforeach
                         </tbody>
+
                     </table>
+
                 </div>
             </div>
             <!-- /.box-body -->
-            {{-- <!--{{ $users->links() }}--> --}}
+            {{-- {{ $projects->links() }} --}}
         </div>
 
         <!-- /.box -->
@@ -148,7 +152,8 @@
                       </div>
                       <div class="card-body">
 
-                        <form class="form" method="POST" enctype="multipart/form-data">
+                        <form class="form" action="{{ route('store-project') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
 
                           <div class="row">
                             <div class="col-md-12 col-12">
@@ -156,7 +161,7 @@
                                 <label class="form-label mb-1" >Project Title</label>
            <input type="text" id="" class="form-control" placeholder="Title"
                                   name="title"
-                                />
+                               required />
                               </div>
                             </div>
 
@@ -179,7 +184,7 @@
                                   <label class="form-label mb-1" >Student Name</label>
              <input type="text" id="" class="form-control" placeholder="Student"
                                     name="student"
-                                  />
+                                 required />
                                 </div>
                               </div>
 
@@ -187,7 +192,7 @@
                               <div class="col-md-12 col-12">
                                 <div class="mb-2">
                                   <label class="form-label mb-1" >Project Description</label>
-             <textarea name="description" id="editor" cols="10" rows="3" class="form-control"></textarea>
+             <textarea name="description" id="editor" cols="10" rows="3" class="form-control" required></textarea>
                                 </div>
                               </div>
 
@@ -196,7 +201,7 @@
                                   <label class="form-label mb-1" >Project File</label>
              <input type="file"  class="form-control" placeholder="Year"
                                     name="project_file"
-                                  />
+                                 required />
                                 </div>
                               </div>
 

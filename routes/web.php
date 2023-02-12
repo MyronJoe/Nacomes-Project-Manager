@@ -61,6 +61,14 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session')])->group(fun
 //admin view projects
 Route::get('/admin/projects', [ProjectController::class, 'Projects'])->name('admin-view-project');
 
+//admin store projects
+Route::post('/admin/project/store', [ProjectController::class, 'AdminStoreProjects'])->name('store-project');
+
+//upload project form
+Route::get('/admin/project/upload', function () {
+    return view('backend.projects.store_project');
+})->name('project-upload');
+
 
 
 });
