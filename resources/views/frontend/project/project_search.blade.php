@@ -65,13 +65,24 @@
                 <div class="card">
 
                     @forelse($products as $item)
-      <a href="{{ url('product/details/'. $item->id. '/'.$item->name) }}">
+      <a href="{{ route('project-details', $item->id) }}">
+{{--
+    <div class="d-flex flex-column ml-3" style="margin-left: 10px"> <span>Title: {{ $item->title }} </span>   </div>
 
-    <div class="d-flex flex-column ml-3" style="margin-left: 10px"> <span>{{ $item->title }} </span>   </div>
+    <div class="d-flex flex-column ml-3" style="margin-left: 10px"> <span>{{ $item->description }} </span>   </div>
+    <div class="d-flex flex-column ml-3" style="margin-left: 10px"> <span>Year: {{ $item->year }} </span>   </div>
+    </div> --}}
 
-    {{-- <div class="d-flex flex-column ml-3" style="margin-left: 10px"> <span>{{ $item->description }} </span>   </div> --}}
-    <div class="d-flex flex-column ml-3" style="margin-left: 10px"> <span>{{ $item->year }} </span>   </div>
-    </div></a>
+    <table>
+        <tr>
+            <td>  <span class="text-danger">TITLE:</span> {{ $item->title }}</td>
+            <hr>
+            <td>  <span class="text-danger"> YEAR:</span> {{ $item->year }}</td>
+        </tr>
+    </table>
+
+
+</a>
 
     @empty
          <h3 class="text-danger text-center">No Project Found</h3>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Academics;
 use App\Models\Backend\Project;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
@@ -100,6 +101,125 @@ class ProjectController extends Controller
             return redirect()->back()->with('success', 'Project Deleted Successfully.');
         }
     } //end method
+}//end method
+
+
+//admin edit project
+public function AdminEditProjects($id){
+    $edit = Project::findOrFail($id);
+     $academics = Academics::latest()->get();
+    return view('backend.projects.edit_project', compact('edit', 'academics'));
+}
+
+
+
+
+//admin update project
+public function AdminUpdateProjects(Request $request, $id){
+    $old_file = $request->old_file;
+
+    //check if there is a new file
+    if($request->project_file == null){
+        //valide without file
+        $request->validate([
+            'title' => ['required', 'string','min:3'],
+            'year' => ['required', 'string'],
+            'student' => ['required', 'string','min:3'],
+            'description' => ['required', 'string','min:3'],
+        ]);
+
+
+        $thisyear = date('Y');
+        //insert to db
+        Project::findOrFail($id)->update([
+             'title' => $request->title,
+             'year' => $request->year,
+             'this_year' => $thisyear,
+
+             'student' => $request->student,
+             'description' => $request->description,
+             'title' => $request->title,
+            //  'project_file' =>  $filename ,
+
+        ]);
+
+        return redirect()->route('admin-view-project')->with('success', 'Project Updated Successfully.');
+
+
+
+    }//end if
+
+else{
+
+  //validate request
+  $request->validate([
+    'title' => ['required', 'string','min:3'],
+    'year' => ['required', 'string'],
+    'student' => ['required', 'string','min:3'],
+    'description' => ['required', 'string','min:3'],
+    'project_file' => ['required', 'file', 'mimes:zip'],
+]);
+
+//fine id
+$pro = Project::findOrFail($id);
+$file = public_path('uploads/'. $pro->project_file);
+//delete old file
+unlink($file);
+
+//upload old file
+$f  = $request->project_file;
+$filename = time().'.'.$f->getClientOriginalExtension();
+ $request->project_file->move('uploads', $filename);
+
+
+
+$thisyear = date('Y');
+//insert to db
+Project::findOrFail($id)->update([
+ 'title' => $request->title,
+ 'year' => $request->year,
+ 'this_year' => $thisyear,
+
+ 'student' => $request->student,
+ 'description' => $request->description,
+ 'title' => $request->title,
+ 'project_file' =>  $filename ,
+
+]);
+
+return redirect()->route('admin-view-project')->with('success', 'Project Updated Successfully.');
+
+
+
+
+}//end else
+
+}
+
+
+
+
+//project details page
+public function ProjectsDetailsPage($id){
+    $project = Project::findOrFail($id);
+
+    return view('frontend.project.project_details', compact('project'));
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     //admin edit project

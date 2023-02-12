@@ -67,9 +67,10 @@
                             <div class="form-group mb-1">
                                 <label class="mb-1">Project Year</label>
                                   <select name="year" class="select2 form-select" id="select2-basic" required>
-                                    <option value="">Select</option>
-                                    <option value="product">Product</option>
-                                    <option value="page">Page</option>
+                                    <option value="">Select Year</option>
+                                    @foreach($academics as $key => $data)
+                                    <option value="{{$data->session}}">{{$data->session}}</option>
+                                    @endforeach
                                   </select>
                                   @error('year')
                                   <span class="text-danger">{{ $message }}</span>

@@ -1,6 +1,8 @@
 @extends('backend.backend_master')
 @section('content')
 
+
+
 <!-- list and filter end -->
 </section>
 <!-- users list ends -->
@@ -75,7 +77,7 @@
 
             <div class="col-md-12 col-12">
               <div class="mb-2">
-                <label class="form-label mb-1">Project File</label>
+                <label class="form-label mb-1">Project File (.zip only)</label>
                 <input type="file" class="form-control" placeholder="Year" name="project_file" required />
                 @error('project_file')
                 <span class="text-danger">{{ $message }}</span>
@@ -87,7 +89,7 @@
 
             <div class="card-footer">
               <button type="submit" class="btn btn-primary me-1">Submit Project</button>
-              <button type="reset" class="btn btn-outline-secondary">Reset Form</button>
+              <button type="reset" class="btn btn-outline-danger">Reset Form</button>
 
 
 
