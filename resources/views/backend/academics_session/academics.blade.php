@@ -30,9 +30,9 @@
                                     <tr>
                                         <td>{{$key + 1}}</td>
                                         <td>{{$data->session}}</td>
-                                        <td>
+                                        <td class="d-flex">
                                             <a href="" class="btn btn-primary btn-sm"><i class="fa fa-eye"></i>Edit</a>
-
+                                                <span class="m-1 d-block"></span>
                                             <a href="" class="btn btn-danger btn-sm" id="delete"><i class="fa fa-eye"></i>Delete</a>
                                         </td>
                                     </tr>
