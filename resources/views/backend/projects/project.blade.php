@@ -1,11 +1,7 @@
 @extends('backend.backend_master')
 @section('content')
     <!-- list and filter end -->
-    </section>
-    <!-- users list ends -->
-
-    </div>
-    </div>
+    
 
 
 
