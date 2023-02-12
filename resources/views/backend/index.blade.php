@@ -3,7 +3,15 @@
 @section('content')
 
 
+@php
 
+$year = date('Y');
+    $total_project = App\Models\Backend\Project::latest()->get();
+
+    $year_project = App\Models\Backend\Project::where('this_year', $year)->get();
+
+    $total_admin = App\Models\User::where('user_type', 1)->get();
+@endphp
 
 
 
@@ -31,10 +39,10 @@
             <a href="">
           <div class="avatar bg-light-info p-50 mb-1">
             <div class="avatar-content">
-                <i data-feather='dollar-sign'></i>
+                <i data-feather='book'></i>
             </div>
           </div>
-          <h2 class="fw-bolder">#</h2>
+          <h2 class="fw-bolder">{{ count($total_project) }}</h2>
           <p class="card-text">Total Projects</p>
         </a>
         </div>
@@ -49,7 +57,7 @@
                 <i data-feather='wifi'></i>
             </div>
           </div>
-          <h2 class="fw-bolder">#</h2>
+          <h2 class="fw-bolder">{{ count($year_project) }}</h2>
           <p class="card-text">Project Uploaded This Year</p>
         </a>
         </div>
@@ -64,7 +72,7 @@
                 <i data-feather='tv'></i>
             </div>
           </div>
-          <h2 class="fw-bolder">#</h2>
+          <h2 class="fw-bolder">{{ count( $total_admin) }}</h2>
           <p class="card-text">Total Admin</p>
             </a>
         </div>
