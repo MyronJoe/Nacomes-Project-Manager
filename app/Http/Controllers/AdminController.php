@@ -56,6 +56,6 @@ class AdminController extends Controller
 
         $data->save();
 
-        return redirect()->route('admin-academics')->with('message', 'Session Added Successfully');
+        return redirect()->route('admin-academics')->with('message', 'Accademic Session Added Successfully');
     }
 }
