@@ -189,4 +189,61 @@ class ProjectController extends Controller
         } //end else
 
     }
+
+
+//project detail page
+public function ProjectsDetailsPage($id){
+    $project = Project::findOrFail($id);
+
+    return view('frontend.project.project_details', compact('project'));
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
