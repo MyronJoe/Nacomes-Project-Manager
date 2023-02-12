@@ -37,7 +37,8 @@ class AdminController extends Controller
     }
 
     //admin manage academics session
-    public function Academics(){
+    public function Academics()
+    {
 
         $datas = Academics::orderBy('id', 'desc')->get();
 
@@ -45,43 +46,38 @@ class AdminController extends Controller
     }
 
     //the add session page route
-    public function Add_session(){
+    public function Add_session()
+    {
 
         return view('backend.academics_session.add_session');
     }
 
 
     //the add session to database function
-    public function Save_session(Request $request){
+    public function Save_session(Request $request)
+    {
 
-        $data = new Academics();
 
-        $all_datas = Academics::all();
+        //checks if the session already exist b4 adding to database
+        $year = Academics::where('session', $request->year)->exists();
 
-        
+        if ($year) {
+            return redirect()->back()->with('message', 'Accademic Session Already Exist');
+        } else {
+            $data = new Academics();
 
-        foreach ($all_datas as $all_data) {
+            $data->session = $request->year;
 
-            $session = $all_data->session;
-            
-            if($session = $request->year){
-                return redirect()->back()->with('message', 'Accademic Session dey');
-            }else{
+            $data->save();
 
-                $data->session = $request->year;
-
-                $data->save();
-
-                return redirect()->route('admin-academics')->with('message', 'Accademic Session Added Successfully');
-
-            }
+            return redirect()->route('admin-academics')->with('message', 'Accademic Session Added Successfully');
         }
-
     }
 
 
     //Delete session function
-    public function Delete_session($id){
+    public function Delete_session($id)
+    {
 
         $data = Academics::find($id);
 
@@ -92,7 +88,8 @@ class AdminController extends Controller
 
 
     //edit session page function
-    public function Edit_session($id){
+    public function Edit_session($id)
+    {
 
         $data = Academics::find($id);
 
@@ -102,20 +99,29 @@ class AdminController extends Controller
 
 
     //Update session in database function
-    public function Update_session(Request $request, $id){
+    public function Update_session(Request $request, $id)
+    {
 
         $data = Academics::find($id);
 
-        $data->session = $request->year;
+        //checks if the session already exist && != any other session in the database b4 adding to database
+        $year = Academics::where('session', $request->year)->exists();
 
-        $data->save();
+        // dd($data->session);
+        // dd($request->year);
 
-        return redirect()->route('admin-academics')->with('message', 'Accademic Session Updated Successfully');
+        if ($year && $data->session !== $request->year) {
+            return redirect()->back()->with('message', 'Accademic Session Already Exist');
+        } else {
+            $data->session = $request->year;
+
+            $data->save();
+
+            return redirect()->route('admin-academics')->with('message', 'Accademic Session Updated Successfully');
+        }
     }
 
 
 
-
-
-
+    
 }
