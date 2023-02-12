@@ -19,7 +19,7 @@
 
                     <div class="col-12">
                         <div class="search">
-                            <input type="text" class="form-control" onfocus="search_result_show()" onblur="search_result_hide()" id="search" name="search" placeholder="Search project here..." required >
+                            <input type="text" class="form-control" onfocus="search_result_show()" onblur="search_result_" id="search" name="search" placeholder="Search project here..." required >
                         </div>
                     </div>
 
