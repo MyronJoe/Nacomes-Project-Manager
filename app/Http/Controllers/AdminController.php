@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Session;
-
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
+
+use Illuminate\Support\Facades\Session;
 
 class AdminController extends Controller
 {
@@ -23,11 +23,13 @@ class AdminController extends Controller
     }
 
     //Admin Logout Function
-    public function logout()
+    public function logout(Request $request)
     {
-        Session::flush();
+        auth()->guard('web')->logout();
 
-        Auth::logout();
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
 
         return redirect('/');
     }
