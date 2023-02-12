@@ -77,6 +77,10 @@ Route::post('/admin/academics/update_session/{id}', [AdminController::class, 'Up
 //project detail page
 Route::get('/{id}', [ProjectController::class, 'ProjectsDetailsPage'])->name('project-details');
 
+//download projet projects
+Route::get('/download/now/{id}', [ProjectController::class, 'DownloadProjects'])->name('download');
+
+
 
 //================PROJECT ALL ROUTES============================================
 Route::middleware(['auth:sanctum', 'checkregister', config('jetstream.auth_session')])->group(function () {
@@ -96,8 +100,6 @@ Route::get('/admin/project/upload', function () {
 
 })->name('project-upload');
 
-//download projet projects
-Route::get('/download/now/{id}', [ProjectController::class, 'DownloadProjects'])->name('download');
 
 //admin delete projet projects
 Route::get('/admin/delete/project/{id}', [ProjectController::class, 'AdminDeleteProjects'])->name('admin-delete-project');
