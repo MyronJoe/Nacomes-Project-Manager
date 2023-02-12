@@ -74,6 +74,8 @@ Route::post('/admin/academics/update_session/{id}', [AdminController::class, 'Up
 
 
 
+//project detail page
+Route::get('/{id}', [ProjectController::class, 'ProjectsDetailsPage'])->name('project-details');
 
 
 //================PROJECT ALL ROUTES============================================
@@ -106,8 +108,6 @@ Route::get('/admin/edit/project/{id}', [ProjectController::class, 'AdminEditProj
 //admin update projet projects
 Route::post('/admin/update/project/{id}', [ProjectController::class, 'AdminUpdateProjects'])->name('update-project');
 
-//project detail page
-Route::get('/{id}', [ProjectController::class, 'ProjectsDetailsPage'])->name('project-details');
 
 
 });
