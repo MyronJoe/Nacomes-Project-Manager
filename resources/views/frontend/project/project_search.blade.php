@@ -65,7 +65,7 @@
                 <div class="card">
 
                     @forelse($products as $item)
-      <a href="{{ url('product/details/'. $item->id. '/'.$item->name) }}">
+      <a href="{{ route('project-details', $item->id) }}">
 {{--
     <div class="d-flex flex-column ml-3" style="margin-left: 10px"> <span>Title: {{ $item->title }} </span>   </div>
 
@@ -75,9 +75,9 @@
 
     <table>
         <tr>
-            <td>  TITLE: {{ $item->title }}</td>
+            <td>  <span class="text-danger">TITLE:</span> {{ $item->title }}</td>
             <hr>
-            <td>  | YEAR: {{ $item->year }}</td>
+            <td>  <span class="text-danger"> YEAR:</span> {{ $item->year }}</td>
         </tr>
     </table>
 

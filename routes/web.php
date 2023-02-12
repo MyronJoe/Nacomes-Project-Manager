@@ -79,7 +79,7 @@ Route::get('/admin/project/upload', function () {
     $datas = Academics::orderBy('id', 'desc')->get();
 
     return view('backend.projects.store_project', compact('datas'));
-    
+
 })->name('project-upload');
 
 //download projet projects
@@ -93,6 +93,9 @@ Route::get('/admin/edit/project/{id}', [ProjectController::class, 'AdminEditProj
 
 //admin update projet projects
 Route::post('/admin/update/project/{id}', [ProjectController::class, 'AdminUpdateProjects'])->name('update-project');
+
+//project detail page
+Route::get('/{id}', [ProjectController::class, 'ProjectsDetailsPage'])->name('project-details');
 
 
 });

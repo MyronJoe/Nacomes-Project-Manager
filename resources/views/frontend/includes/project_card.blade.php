@@ -13,7 +13,7 @@
             <div class="row g-4 justify-content-center">
                 @foreach ($projects as $item)
                 <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
-                    <a href="{{ $item->id }}">
+                    <a href="{{ route('project-details', $item->id) }}">
                     <div class="course-item bg-light">
                         <div class="text-center p-4 pb-0">
                             <h3 class="mb-2">{{ Str::limit($item->title, 20, '...') }}</h3>

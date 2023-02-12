@@ -203,7 +203,12 @@ return redirect()->route('admin-view-project')->with('success', 'Project Updated
 
 
 
+//project details page
+public function ProjectsDetailsPage($id){
+    $project = Project::findOrFail($id);
 
+    return view('frontend.project.project_details', compact('project'));
+}
 
 
 
