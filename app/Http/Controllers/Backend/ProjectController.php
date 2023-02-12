@@ -12,7 +12,7 @@ class ProjectController extends Controller
 {
     //admin view project
     public function Projects(){
-        $projects = Project::latest()->simplePaginate(5);
+        $projects = Project::latest()->simplePaginate(10);
 
         return view('backend.projects.project', compact('projects'));
     }
@@ -42,6 +42,12 @@ elseif(Project::where('student', $request->student )->exists()){
 }
 else{
 
+    $file  = $request->file('project_file');
+    $filename = hexdec(uniqid()).'.'.$file->getClientOriginalExtension();
+   $file_url =  $request->project_file->move('uploads/'.$filename);
+   $save_url = 'uploads/'.$filename;
+
+
 $thisyear = date('Y');
 //insert to db
 Project::create([
@@ -52,6 +58,7 @@ Project::create([
      'student' => $request->student,
      'description' => $request->description,
      'title' => $request->title,
+     'project_file' =>  $save_url ,
 
 ]);
 
@@ -66,11 +73,18 @@ return redirect()->route('admin-view-project')->with('success', 'Project Uploade
 
 
 
+//download
+public function DownloadProjects($id){
+   $f = Project::findOrFail($id);
+   $filePath = public_path($f->project_file);
+   $headers = ['Content-Type: application/pdf'];
+   $fileName = time().'.zip';
+
+   return response()->download($filePath, $fileName, $headers);
 
 
 
-
-
+}
 
 
 

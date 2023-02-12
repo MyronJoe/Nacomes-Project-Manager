@@ -15,7 +15,16 @@
       <p class="clearfix mb-0"><span class="float-md-start d-block d-md-inline-block mt-25">COPYRIGHT  &copy; 2021<a class="ms-25" href="" target="_blank">Mouau</a><span class="d-none d-sm-inline-block">, All rights Reserved</span></span><span class="float-md-end d-none d-md-block">Hand-crafted & Made with<i data-feather="heart"></i></span></p>
     </footer>
 
-    <!-- END: Footer-->
+
+
+    <script src="../../../app-assets/vendors/js/extensions/sweetalert2.all.min.js"></script>
+
+
+
+    <script src="../../../app-assets/js/scripts/extensions/ext-component-sweet-alerts.min.js"></script>
+    <!-- END: Page JS-->
+   --}}
+
 
 
     <!-- BEGIN: Vendor JS-->
@@ -35,30 +44,7 @@
 
     <!-- BEGIN: Page JS-->
     <script src="../../../app-assets/js/scripts/pages/dashboard-ecommerce.min.js"></script>
-
-    <script src="../../../app-assets/vendors/js/extensions/sweetalert2.all.min.js"></script>
-
-
-
-    <script src="../../../app-assets/js/scripts/extensions/ext-component-sweet-alerts.min.js"></script>
     <!-- END: Page JS-->
-    <script src="../../../app-assets/js/scripts/pagination/components-pagination.js"></script>
-    <script src="../../../app-assets/vendors/js/pagination/jquery.bootpag.min.js"></script>
-    <script src="../../../app-assets/vendors/js/pagination/jquery.twbsPagination.min.js"></script>
-
-    <script src="../../../app-assets/vendors/js/tables/datatable/jquery.dataTables.min.js"></script>
-    <script src="../../../app-assets/vendors/js/tables/datatable/dataTables.bootstrap5.min.js"></script>
-  script>
-    <script src="../../../app-assets/vendors/js/tables/datatable/responsive.bootstrap5.min.js"></script>
-    <script src="../../../app-assets/vendors/js/tables/datatable/datatables.checkboxes.min.js"></script>
-    <script src="../../../app-assets/vendors/js/tables/datatable/datatables.buttons.min.js"></script>
-    <script src="../../../app-assets/vendors/js/tables/datatable/jszip.min.js"></script>
-    <script src="../../../app-assets/vendors/js/tables/datatable/pdfmake.min.js"></script>
-    <script src="../../../app-assets/vendors/js/tables/datatable/vfs_fonts.js"></script>
-    <script src="../../../app-assets/vendors/js/tables/datatable/buttons.html5.min.js"></script>
-    
-    <script src="../../../app-assets/vendors/js/tables/datatable/dataTables.rowGroup.min.js"></script>
-    <script src="../../../app-assets/vendors/js/pickers/flatpickr/flatpickr.min.js"></s>
 
     <script>
       $(window).on('load',  function(){

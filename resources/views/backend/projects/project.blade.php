@@ -1,18 +1,11 @@
 @extends('backend.backend_master')
 @section('content')
-
-
-
-
-
-
-
-            <!-- list and filter end -->
-        </section>
-        <!-- users list ends -->
+    <!-- list and filter end -->
+    </section>
+    <!-- users list ends -->
 
     </div>
-</div>
+    </div>
 
 
 
@@ -32,228 +25,80 @@
 
 
 
-<div class="row">
-<div class="col-12">
-    <a href="" ></a>
+    <div class="row">
+        <div class="col-12">
+            <a href=""></a>
 
 
-<a href="{{ route('project-upload') }}"  class="btn btn-primary  py-1" style="float: right" > Upload a Project
-  </a>
+            <a href="{{ route('project-upload') }}" class="btn btn-primary  py-1" style="float: right"> Upload a Project
+            </a>
 
 
 
 
 
-</div> <br>
-    <div class="col-md-12 ">
+        </div> <br>
+        <div class="col-md-12 ">
 
-        <div class="card">
+            <div class="card">
 
-            <div class="card-header with-border">
-                <h3 class="card-title ">Manage Projects</h3>
-            </div>
+                <div class="card-header with-border">
+                    <h3 class="card-title ">Manage Projects</h3>
+                </div>
 
-            <!-- /.box-header -->
-            <div class="card-body">
+                <!-- /.box-header -->
+                <div class="card-body">
 
-                <div class="table-responsive ">
+                    <div class="table-responsive ">
 
-                    <table id="example1" class="table table-bordered table-striped">
+                        <table id="example1" class="table table-bordered table-striped">
 
-                        <thead>
-
-                            <tr>
-
-                                <th>Title</th>
-                                <th>Date</th>
-
-
-                                <th>Action</th>
-                            </tr>
-
-                        </thead>
-                        <tbody>
-                @foreach ($projects as $project)
-
+                            <thead>
 
                                 <tr>
 
-                                    <td>{{ $project->title }}</td>
+                                    <th>Title</th>
+                                    <th>Student</th>
+                                    <th>Date</th>
 
 
-
-                                    <td>{{ $project->student }}</td>
-                                    <td>
-                                        <a href=" class="btn btn-info"><i
-                                                class="fa fa-eye"></i>View</a>
-                                    </td>
+                                    <th>Action</th>
                                 </tr>
 
+                            </thead>
+                            <tbody>
+                                @foreach ($projects as $project)
+                                    <tr>
+
+                                        <td>{{ $project->title }} </td>
+
+
+
+                                        <td>{{ $project->student }}</td>
+                                        <td>{{ $project->created_at->diffForHumans() }}</td>
+                                        <td>
+                                            <a href="{{ route('download', $project->id) }}" class="btn btn-primary btn-sm"><i
+                                                    class="fa fa-eye"></i>download</a>
+
+                                            <a href="" class="btn btn-danger btn-sm" id="delete"><i
+                                                    class="fa fa-eye"></i>Delete</a>
+                                        </td>
+                                    </tr>
                                 @endforeach
-                        </tbody>
+                            </tbody>
 
-                    </table>
+                        </table>
 
-                </div>
-            </div>
-            <!-- /.box-body -->
-            {{-- {{ $projects->links() }} --}}
-        </div>
-
-        <!-- /.box -->
-    </div>
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="fullscreen-modal">
-    <!-- upload projectc Modal -->
-    <div class="modal fade" id="fullscreenModal" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog modal-fullscreen" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="modalFullTitle">Upload a new project</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-
-            <hr>
-
-
-
-
-
-
-
-
-            <section id="multiple-column-form">
-                <div class="row">
-                  <div class="col-12">
-                    <div class="card">
-                      <div class="card-header">
-                        <h4 class="card-title"></h4>
-                      </div>
-                      <div class="card-body">
-
-                        <form class="form" action="{{ route('store-project') }}" method="POST" enctype="multipart/form-data">
-                            @csrf
-
-                          <div class="row">
-                            <div class="col-md-12 col-12">
-                              <div class="mb-2">
-                                <label class="form-label mb-1" >Project Title</label>
-           <input type="text" id="" class="form-control" placeholder="Title"
-                                  name="title"
-                               required />
-                              </div>
-                            </div>
-
-                            <div class="col-md-12 col-12">
-                                <div class="mb-2">
-                                    <div class="form-group mb-1">
-                                        <label class="mb-1">Project Year</label>
-                                          <select name="year" class="select2 form-select" id="select2-basic" required>
-                                            <option value="">Select</option>
-                                            <option value="product">Product</option>
-                                            <option value="page">Page</option>
-                                          </select>
-                                      </div>
-
-                                </div>
-                              </div>
-
-                              <div class="col-md-12 col-12">
-                                <div class="mb-2">
-                                  <label class="form-label mb-1" >Student Name</label>
-             <input type="text" id="" class="form-control" placeholder="Student"
-                                    name="student"
-                                 required />
-                                </div>
-                              </div>
-
-
-                              <div class="col-md-12 col-12">
-                                <div class="mb-2">
-                                  <label class="form-label mb-1" >Project Description</label>
-             <textarea name="description" id="editor" cols="10" rows="3" class="form-control" required></textarea>
-                                </div>
-                              </div>
-
-                              <div class="col-md-12 col-12">
-                                <div class="mb-2">
-                                  <label class="form-label mb-1" >Project File</label>
-             <input type="file"  class="form-control" placeholder="Year"
-                                    name="project_file"
-                                 required />
-                                </div>
-                              </div>
-
-
-
-                              <div class="modal-footer">
-                                <button type="submit" class="btn btn-primary me-1">Submit Project</button>
-                              <button type="reset" class="btn btn-outline-secondary">Reset Form</button>
-                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-
-
-                            </div>
-                          </div>
-                        </form>
-                      </div>
                     </div>
-                  </div>
                 </div>
-              </section>
-              <!-- Basic Floating Label Form section end -->
+                <!-- /.box-body -->
+                {{ $projects->links() }}
+            </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-          </div>
-
+            <!-- /.box -->
         </div>
-      </div>
+
     </div>
-  </div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Modal Sizes end -->
 
 
 
@@ -268,4 +113,17 @@
 
 
 
+
+
+
+
+
+
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </section>
+    <!-- Modal Sizes end -->
 @endsection
