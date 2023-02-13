@@ -15,7 +15,7 @@ class ProjectController extends Controller
     //admin view project
     public function Projects()
     {
-        $projects = Project::latest()->simplePaginate(10);
+        $projects = Project::latest()->simplePaginate(5);
 
         return view('backend.projects.project', compact('projects'));
     }
@@ -108,7 +108,9 @@ class ProjectController extends Controller
     {
         $edit = Project::findOrFail($id);
 
-        return view('backend.projects.edit_project', compact('edit'));
+        $academics = Academics::latest()->get();
+
+        return view('backend.projects.edit_project', compact('edit', 'academics'));
     }
 
 
@@ -191,59 +193,11 @@ class ProjectController extends Controller
     }
 
 
-//project detail page
-public function ProjectsDetailsPage($id){
-    $project = Project::findOrFail($id);
+    //project detail page
+    public function ProjectsDetailsPage($id)
+    {
+        $project = Project::findOrFail($id);
 
-    return view('frontend.project.project_details', compact('project'));
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        return view('frontend.project.project_details', compact('project'));
+    }
 }
