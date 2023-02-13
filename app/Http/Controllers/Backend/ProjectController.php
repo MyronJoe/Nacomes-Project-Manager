@@ -108,7 +108,9 @@ class ProjectController extends Controller
     {
         $edit = Project::findOrFail($id);
 
-        return view('backend.projects.edit_project', compact('edit'));
+        $academics = Academics::latest()->get();
+
+        return view('backend.projects.edit_project', compact('edit', 'academics'));
     }
 
 

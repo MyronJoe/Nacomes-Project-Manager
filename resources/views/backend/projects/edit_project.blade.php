@@ -68,7 +68,7 @@
                                 <label class="mb-1">Project Year</label>
                                   <select name="year" class="select2 form-select" id="select2-basic" required>
                                     <option value="">Select Year</option>
-                                    @foreach($academics as $key => $data)
+                                    @foreach($academics as  $data)
                                     <option value="{{$data->session}}">{{$data->session}}</option>
                                     @endforeach
                                   </select>
