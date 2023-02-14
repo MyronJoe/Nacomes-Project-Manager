@@ -64,7 +64,7 @@ class AdminController extends Controller
         $year = Academics::where('session', $request->year)->exists();
 
         if ($year) {
-            return redirect()->back()->with('message', 'Accademic Session Already Exist');
+            return redirect()->back()->with('error', 'Accademic Session Already Exist');
         } else {
             $data = new Academics();
 

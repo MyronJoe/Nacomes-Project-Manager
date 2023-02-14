@@ -38,7 +38,7 @@
                         data-i18n="Todo">Academic Session</span></a></li>
 
 
-            <li class=" nav-item"><a class="d-flex align-items-center" href="app-calendar.html"><i
+            <li class=" nav-item"><a class="d-flex align-items-center" href="{{ route('manage_users') }}"><i
                         data-feather="users"></i><span class="menu-title text-truncate"
                         data-i18n="users">Admins</span></a></li>
 
