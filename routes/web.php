@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin_usersControllerer;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\ProjectController;
 use Illuminate\Support\Facades\Route;
@@ -112,7 +113,10 @@ Route::middleware(['auth:sanctum', 'checkregister', config('jetstream.auth_sessi
     //================ADMIN USERS ALL ROUTES============================================
 
     //admin view users
-    Route::get('/admin/users', [ProjectController::class, 'Manage_users'])->name('manage_users');
+    Route::get('/admin/users', [Admin_usersControllerer::class, 'Manage_users'])->name('manage_users');
+
+    //add admin users
+    Route::get('/admin/users/add_admin', [Admin_usersControllerer::class, 'Add_admin'])->name('add_admin');
 
 
 });
