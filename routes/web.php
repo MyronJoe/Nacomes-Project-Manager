@@ -121,6 +121,9 @@ Route::middleware(['auth:sanctum', 'checkregister', config('jetstream.auth_sessi
     //save admin users to database
     Route::post('/admin/users/save_admin', [Admin_usersControllerer::class, 'Save_admin'])->name('save_admin');
 
+    //delete admin users to database
+    Route::get('/admin/users/delete/{id}', [Admin_usersControllerer::class, 'Delete_user'])->name('delete_user');
+
 
 });
 
