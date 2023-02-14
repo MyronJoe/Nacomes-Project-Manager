@@ -27,17 +27,21 @@ class Admin_usersControllerer extends Controller
     //save admin to database
     public function Save_admin(Request $request){
 
-        $hashed = Hash::make('password', [
-            'memory' => 65536,
-            'threads' => 1,
-            'time' => 4,
-        ]);
+        // $hashed = Hash::make('password', [
+        //     'memory' => 65536,
+        //     'threads' => 1,
+        //     'time' => 4,
+        // ]);
+
+        // $hashed = Hash::make('password', [
+        //     'rounds' => 10,
+        // ]);
 
         $request->validate([
-            'name' => 'required',
-            'email' => 'required',
+            'name' => 'required|string',
+            'email' => 'required|string',
             'password' => 'required|string|min:8',
-            'confirmed' => 'required_with:password|same:password|min:8'
+            'confirmed' => 'required_with:password|same:password|min:8|string'
         ]);
 
 
@@ -47,7 +51,7 @@ class Admin_usersControllerer extends Controller
 
         $data->name = $request->name;
         $data->email = $request->email;
-        $data->password = $hashed;
+        $data->password = Hash::make($request->password);
 
         if ($request->super_admin) {
             $data->user_type = '2';
@@ -60,6 +64,7 @@ class Admin_usersControllerer extends Controller
         return redirect()->route('manage_users')->with('success', 'Admin Created Successfully');
 
     }
+    
 
 
 }
