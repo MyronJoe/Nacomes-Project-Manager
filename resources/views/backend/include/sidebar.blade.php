@@ -49,7 +49,7 @@
 
 
 
-                        <li class=" nav-item"><a class="d-flex align-items-center" href="app-kanban.html"><i
+                        <li class=" nav-item"><a class="d-flex align-items-center" href="{{ route('admin-profile') }}"><i
                             data-feather="user"></i><span class="menu-title text-truncate"
                             data-i18n="user">Profile</span></a></li>
 

@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Academics;
-
+use App\Models\User;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Session;
 
 class AdminController extends Controller
@@ -123,5 +123,49 @@ class AdminController extends Controller
 
 
 
+//==============================ADMIN PROFILE============================================
+//admin proofile
+public function AdminProfile(){
+    $admin = User::findOrFail(Auth::user()->id);
+
+    return view('admin.profile', compact('admin'));
+}
+
+//admin update profile
+public function AdminProfileUpdate(Request $request, $id){
+    //validate
+    $request->validate([
+        'name' => ['required', 'string', 'min:3'],
+        'email' => ['required', 'string', 'email'],
+    ]);
+
+    //update
+    User::findOrFail($id)->update([
+        'name' => $request->name,
+        'email' => $request->email,
+    ]);
+
+    return redirect()->back()->with('success', 'Profile updated successfully.');
+}
+
+
+
+//admin update password
+public function AdminPasswordUpdate(Request $request, $id){
     
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

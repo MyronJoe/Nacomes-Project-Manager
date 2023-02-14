@@ -68,6 +68,15 @@ Route::get('/admin/academics/edit_session/{id}', [AdminController::class, 'Edit_
 Route::post('/admin/academics/update_session/{id}', [AdminController::class, 'Update_session'])->name('update_session');
 
 
+//admin profile
+Route::get('/admin/profile', [AdminController::class, 'AdminProfile'])->name('admin-profile');
+
+//admin update profile
+Route::post('/admin/profile/update/{id}', [AdminController::class, 'AdminProfileUpdate'])->name('admin-update-profile');
+
+//admin update password
+Route::post('/admin/password/update/{id}', [AdminController::class, 'AdminPasswordUpdate'])->name('admin-update-password');
+
 
 });
 //================END ADMIN ALL ROUTES============================================
