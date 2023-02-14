@@ -14,9 +14,9 @@ class Admin_usersControllerer extends Controller
     //Manage Users Page
     public function Manage_users()
     {
-        $super_admin = User::where('user_type', '=', '2')->get();
+        $super_admin = User::where('user_type', '=', '2')->orderBy('id', 'desc')->get();
 
-        $admin_users = User::where('user_type', '=', '1')->get();
+        $admin_users = User::where('user_type', '=', '1')->orderBy('id', 'desc')->get();
         
         // dd($super_admin);
 
@@ -67,6 +67,17 @@ class Admin_usersControllerer extends Controller
 
             return redirect()->route('manage_users')->with('success', 'Admin Created Successfully');
         }
+    }
+
+
+    //Delete User Function
+    public function Delete_user($id){
+
+        $data = User::findOrFail($id);
+
+        $data->delete();
+
+        return redirect()->route('manage_users')->with('success', 'User Deleted Successfully');
     }
 
 

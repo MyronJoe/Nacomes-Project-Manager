@@ -19,7 +19,7 @@
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th>S|N</th>
+                                    <!-- <th>S|N</th> -->
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>Status</th>
@@ -30,7 +30,7 @@
                             <tbody>
                                 @foreach($super_admin as $key => $user)
                                     <tr>
-                                        <td>{{$key + 1}}</td>
+                                        <!-- <td>{{$key + 1}}</td> -->
                                         <td>{{$user->name}}</td>
                                         <td>{{$user->email}}</td>
 
@@ -43,13 +43,13 @@
                                         <td class="d-flex">
                                             <a href="" class="btn btn-primary btn-sm"><i class="fa fa-eye"></i>Edit</a>
                                                 <span class="m-1 d-block"></span>
-                                            <a href="" class="btn btn-danger btn-sm" id="delete"><i class="fa fa-eye"></i>Delete</a>
+                                            <a href="{{route('delete_user', $user->id)}}" class="btn btn-danger btn-sm" id="delete"><i class="fa fa-eye"></i>Delete</a>
                                         </td>
                                     </tr>
                                 @endforeach
                                 @foreach($admin_users as $key => $user)
                                     <tr>
-                                        <td>{{$key + 1}}</td>
+                                        <!-- <td>{{$key + 1}}</td> -->
                                         <td>{{$user->name}}</td>
                                         <td>{{$user->email}}</td>
                                     
@@ -62,7 +62,7 @@
                                         <td class="d-flex">
                                             <a href="" class="btn btn-primary btn-sm"><i class="fa fa-eye"></i>Edit</a>
                                                 <span class="m-1 d-block"></span>
-                                            <a href="{{route('delete_session', $data->id)}}" class="btn btn-danger btn-sm" id="delete"><i class="fa fa-eye"></i>Delete</a>
+                                            <a href="{{route('delete_user', $user->id)}}" class="btn btn-danger btn-sm" id="delete"><i class="fa fa-eye"></i>Delete</a>
                                         </td>
                                     </tr>
                                 @endforeach
