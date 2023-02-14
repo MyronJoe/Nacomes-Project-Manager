@@ -12,4 +12,11 @@ class Admin_usersControllerer extends Controller
 
         return view('backend.admin_users.manage_users');
     }
+
+
+    //add admin form Page
+    public function Add_admin(){
+
+        return view('backend.admin_users.add_admin');
+    }
 }

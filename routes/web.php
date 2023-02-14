@@ -118,6 +118,9 @@ Route::middleware(['auth:sanctum', 'checkregister', config('jetstream.auth_sessi
     //add admin users
     Route::get('/admin/users/add_admin', [Admin_usersControllerer::class, 'Add_admin'])->name('add_admin');
 
+    //save admin users to database
+    Route::get('/admin/users/save_admin', [Admin_usersControllerer::class, 'Save_admin'])->name('save_admin');
+
 
 });
 
