@@ -28,17 +28,38 @@
 
                             </thead>
                             <tbody>
+                                @foreach($super_admin as $key => $user)
                                     <tr>
-                                        <td>1</td>
-                                        <td>ree</td>
-                                        <td>cfg</td>
-                                        <td>dfgg</td>
+                                        <td>{{$key + 1}}</td>
+                                        <td>{{$user->name}}</td>
+                                        <td>{{$user->email}}</td>
+
+                                        @if($user->user_type == 2)
+                                            <td><a href="" id="confirm">Super Admin</a></td>
+                                        @else
+                                            <td><a href="" id="confirm">Admin</a></td>
+                                        @endif
+
                                         <td class="d-flex">
                                             <a href="" class="btn btn-primary btn-sm"><i class="fa fa-eye"></i>Edit</a>
                                                 <span class="m-1 d-block"></span>
                                             <a href="" class="btn btn-danger btn-sm" id="delete"><i class="fa fa-eye"></i>Delete</a>
                                         </td>
                                     </tr>
+                                @endforeach
+                                @foreach($admin_users as $key => $user)
+                                    <tr>
+                                        <td>{{$key + 1}}</td>
+                                        <td>{{$user->name}}</td>
+                                        <td>{{$user->email}}</td>
+                                        <td>{{$user->user_type}}</td>
+                                        <td class="d-flex">
+                                            <a href="" class="btn btn-primary btn-sm"><i class="fa fa-eye"></i>Edit</a>
+                                                <span class="m-1 d-block"></span>
+                                            <a href="" class="btn btn-danger btn-sm" id="delete"><i class="fa fa-eye"></i>Delete</a>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

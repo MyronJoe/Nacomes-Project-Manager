@@ -12,31 +12,30 @@ class Admin_usersControllerer extends Controller
 {
 
     //Manage Users Page
-    public function Manage_users(){
+    public function Manage_users()
+    {
+        $super_admin = User::where('user_type', '=', '2')->get();
 
-        return view('backend.admin_users.manage_users');
+        $admin_users = User::where('user_type', '=', '1')->get();
+        
+        // dd($super_admin);
+
+        return view('backend.admin_users.manage_users', compact('admin_users', 'super_admin'));
     }
 
 
     //add admin form Page
-    public function Add_admin(){
+    public function Add_admin()
+    {
 
         return view('backend.admin_users.add_admin');
     }
 
     //save admin to database
-    public function Save_admin(Request $request){
+    public function Save_admin(Request $request)
+    {
 
-        // $hashed = Hash::make('password', [
-        //     'memory' => 65536,
-        //     'threads' => 1,
-        //     'time' => 4,
-        // ]);
-
-        // $hashed = Hash::make('password', [
-        //     'rounds' => 10,
-        // ]);
-
+        //validate user form
         $request->validate([
             'name' => 'required|string',
             'email' => 'required|string',
@@ -45,26 +44,31 @@ class Admin_usersControllerer extends Controller
         ]);
 
 
-        // dd($request);
-
-        $data  = new User();
-
-        $data->name = $request->name;
-        $data->email = $request->email;
-        $data->password = Hash::make($request->password);
-
-        if ($request->super_admin) {
-            $data->user_type = '2';
-        }else{
-            $data->user_type = '1';
+        //Checks if the user already exist b4 adding to the database
+        $email = User::where('email', $request->email)->exists();
+        if ($email) {
+            return redirect()->back()->with('error', 'Email Already Exist');
         }
+        else {
 
-        $data->save();
+            $data  = new User();
 
-        return redirect()->route('manage_users')->with('success', 'Admin Created Successfully');
+            $data->name = $request->name;
+            $data->email = $request->email;
+            $data->password = Hash::make($request->password);
 
+            if ($request->super_admin) {
+                $data->user_type = '2';
+            } else {
+                $data->user_type = '1';
+            }
+
+            $data->save();
+
+            return redirect()->route('manage_users')->with('success', 'Admin Created Successfully');
+        }
     }
-    
+
 
 
 }
