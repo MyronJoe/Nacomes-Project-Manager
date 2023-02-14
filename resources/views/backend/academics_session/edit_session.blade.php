@@ -7,7 +7,7 @@
         <br>
         <div class="col-md-12 ">
             <div class="card">
-            @include('backend.include.successmsg')
+            <!-- @include('backend.include.successmsg') -->
                 <div class="card-header with-border">
                     <h3 class="card-title ">Update Academic Sessions</h3>
                 </div>

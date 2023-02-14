@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Hash;
+
 
 class AdminController extends Controller
 {
@@ -17,7 +19,7 @@ class AdminController extends Controller
     {
         $userType = Auth::user()->user_type;
 
-        if ($userType === '1') {
+        if ($userType === '1' || $userType === '2') {
             return view('backend.index');
         } else {
             return view('frontend.index');
@@ -70,7 +72,7 @@ class AdminController extends Controller
 
             $data->save();
 
-            return redirect()->route('admin-academics')->with('message', 'Accademic Session Added Successfully');
+            return redirect()->route('admin-academics')->with('success', 'Accademic Session Added Successfully');
         }
     }
 
@@ -83,7 +85,7 @@ class AdminController extends Controller
 
         $data->delete();
 
-        return redirect()->route('admin-academics')->with('message', 'Accademic Session Deleted Successfully');
+        return redirect()->route('admin-academics')->with('success', 'Accademic Session Deleted Successfully');
     }
 
 
@@ -111,15 +113,16 @@ class AdminController extends Controller
         // dd($request->year);
 
         if ($year && $data->session !== $request->year) {
-            return redirect()->back()->with('message', 'Accademic Session Already Exist');
+            return redirect()->back()->with('error', 'Accademic Session Already Exist');
         } else {
             $data->session = $request->year;
 
             $data->save();
 
-            return redirect()->route('admin-academics')->with('message', 'Accademic Session Updated Successfully');
+            return redirect()->route('admin-academics')->with('success', 'Accademic Session Updated Successfully');
         }
     }
+
 
 
 
@@ -152,7 +155,26 @@ public function AdminProfileUpdate(Request $request, $id){
 
 //admin update password
 public function AdminPasswordUpdate(Request $request, $id){
-    
+
+    $request->validate([
+        'current_password'=>'required',
+        'password'=>'required|confirmed',
+        
+]);
+
+//check password
+$hashedPassword = Auth::user()->password;
+    if(Hash::check($request->current_password, $hashedPassword)){
+        User::findorFail($id)->update([
+        'password' => Hash::make($request->password),
+        ]);
+        return redirect()->back()->with('success', 'Password updated successfully.');
+
+}else{
+    return redirect()->back()->with('error', 'Current Password not correct!.');
+}
+
+
 }
 
 

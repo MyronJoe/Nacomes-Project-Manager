@@ -28,9 +28,26 @@
                 <div class="user-info text-center">
                   <h4>{{ $admin->name }}</h4>
                   <span class="badge bg-light-secondary">{{ $admin->email }}</span>
+<hr>
+                  <p>Two Factor Authentication</p>
+
+                  <form action="/user/two-factor-authentication" class="form" method="POST">
+                    @csrf
+                    @if (Auth::user()->two_factor_secret)
+                      @method('DELETE')
+                    <button class="btn btn-danger">Disable</button>
+         
+                    @else
+
+                    <button class="btn btn-success">Enable</button>
+
+                    @endif
+
+                </form>
                 </div>
               </div>
             </div>
+
 
 
           </div>
@@ -104,8 +121,8 @@
                         <div class="col-md-12 col-12">
                             <div class="mb-2">
                               <label class="form-label mb-1">New Password</label>
-                              <input type="password" id="" class="form-control" placeholder="type.." name="new_password" required />
-                              @error('new_password')
+                              <input type="password" id="" class="form-control" placeholder="type.." name="password" required />
+                              @error('password')
                               <span class="text-danger">{{ $message }}</span>
                               @enderror
                             </div>
@@ -114,8 +131,8 @@
                           <div class="col-md-12 col-12">
                             <div class="mb-2">
                               <label class="form-label mb-1">Confirm Password</label>
-                              <input type="password" id="" class="form-control" placeholder="type.." name="confirm_password" required />
-                              @error('confirm_password')
+                              <input type="password" id="" class="form-control" placeholder="type.." name="password_confirmation" required />
+                              @error('password_confirmation')
                               <span class="text-danger">{{ $message }}</span>
                               @enderror
                             </div>
