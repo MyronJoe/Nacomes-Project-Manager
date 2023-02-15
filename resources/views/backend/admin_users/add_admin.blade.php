@@ -9,7 +9,7 @@
             <div class="card">
                 @include('backend.include.successmsg')
                 <div class="card-header with-border">
-                    <h3 class="card-title ">Academic Sessions</h3>
+                    <h3 class="card-title ">Add Admin</h3>
                 </div>
                 <div class="card-body">
                     <form class="form" action="{{ route('save_admin') }}" method="POST" enctype="multipart/form-data" novalidate>
