@@ -43,9 +43,9 @@
                         data-i18n="users">Admins</span></a></li>
 
 
-            <li class=" nav-item"><a class="d-flex align-items-center" href="{{ route('admin-profile') }}"><i
+            <!-- <li class=" nav-item"><a class="d-flex align-items-center" href="{{ route('admin-profile') }}"><i
                         data-feather="grid"></i><span class="menu-title text-truncate"
-                        data-i18n="Kanban">Settings</span></a></li>
+                        data-i18n="Kanban">Settings</span></a></li> -->
 
 
 
