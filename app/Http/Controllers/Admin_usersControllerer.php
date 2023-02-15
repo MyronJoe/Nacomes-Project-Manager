@@ -83,9 +83,9 @@ class Admin_usersControllerer extends Controller
     //add admin form Page
     public function Edit_user($id){
 
-        
+        $data = User::findOrFail($id);
 
-        return view('backend.admin_users.edit_user');
+        return view('backend.admin_users.edit_user', compact('data'));
     }
 
 

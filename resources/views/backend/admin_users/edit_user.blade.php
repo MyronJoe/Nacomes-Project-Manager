@@ -12,7 +12,7 @@
                     <h3 class="card-title ">Academic Sessions</h3>
                 </div>
                 <div class="card-body">
-                    <form class="form" action="{{ route('update_admin') }}" method="POST" enctype="multipart/form-data" novalidate>
+                    <form class="form" action="{{ route('update_admin', $data->id) }}" method="POST" enctype="multipart/form-data" novalidate>
 
                         @csrf
 
@@ -20,7 +20,7 @@
                             <div class="col-md-12 col-12">
                                 <div class="mb-2">
                                     <label class="form-label mb-1">Name</label>
-                                    <input type="text" id="" class="form-control" placeholder="user name" name="name" value="{{ old('name') }}" required />
+                                    <input type="text" id="" class="form-control" placeholder="user name" name="name" value="{{ $data->name }}" required />
                                 </div>
                                 @error('name')
                                     <span class="text-danger">{{ $message }}</span>
@@ -30,7 +30,7 @@
                             <div class="col-md-12 col-12">
                                 <div class="mb-2">
                                     <label class="form-label mb-1">Email</label>
-                                    <input type="email" id="" class="form-control" placeholder="user email" name="email" required value="{{ old('email') }}" />
+                                    <input type="email" id="" class="form-control" placeholder="user email" name="email" required value="{{ $data->email }}" />
                                 </div>
                                 @error('email')
                                     <span class="text-danger">{{ $message }}</span>
@@ -40,7 +40,7 @@
                             <div class="col-md-12 col-12">
                                 <div class="mb-2">
                                     <label class="form-label mb-1">Password</label>
-                                    <input type="password" id="" class="form-control" placeholder="user password" name="password" required value="{{ old('password') }}"/>
+                                    <input type="password" id="" class="form-control" placeholder="change user password" name="password" required value="{{ old('password') }}"/>
                                 </div>
                                 @error('password')
                                     <span class="text-danger">{{ $message }}</span>
