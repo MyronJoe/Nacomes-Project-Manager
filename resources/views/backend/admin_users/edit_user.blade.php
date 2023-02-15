@@ -57,12 +57,21 @@
                                 @enderror
                             </div>
 
+                            @if($data->user_type == 2)
+                            <div class="col-md-12 col-12">
+                                <div class="mb-2">
+                                    <input type="checkbox" id="super_admin" checked class="" name="super_admin"/>
+                                    <label class="form-label mb-1" for="super_admin">Make Super Admin</label>
+                                </div>
+                            </div>
+                            @elseif($data->user_type == 1)
                             <div class="col-md-12 col-12">
                                 <div class="mb-2">
                                     <input type="checkbox" id="super_admin" class="" name="super_admin"/>
                                     <label class="form-label mb-1" for="super_admin">Make Super Admin</label>
                                 </div>
                             </div>
+                            @endif
 
                             <div class="card-footer">
                                 <button type="submit" class="btn btn-primary me-1">Make Admin</button>
