@@ -88,6 +88,42 @@ class Admin_usersControllerer extends Controller
         return view('backend.admin_users.edit_user', compact('data'));
     }
 
+    //Update user data and store in database
+    public function Update_user(Request $request, $id){
+
+        $request->validate([
+            'name' => 'required|string',
+            'email' => 'required|string',
+            'password' => 'required|string|min:8',
+            'confirmed' => 'required_with:password|same:password|min:8|string'
+        ]);
+
+        $data = User::findOrFail($id);
+
+        //checks if the email already exist && != any other email in the database b4 adding to database
+        $email = User::where('email', $request->email)->exists();
+
+
+        if ($email && $data->email !== $request->email) {
+            return redirect()->back()->with('error', 'Email Already Exist');
+        } else {
+
+            $data->name = $request->name;
+            $data->email = $request->email;
+            $data->password = Hash::make($request->password);
+
+            if ($request->super_admin) {
+                $data->user_type = '2';
+            } else {
+                $data->user_type = '1';
+            }
+
+            $data->save();
+
+            return redirect()->route('manage_users')->with('success', 'Admin User updated Successfully');
+        }
+    }
+
 
 
 }
