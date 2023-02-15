@@ -41,7 +41,7 @@
                                         @endif
 
                                         <td class="d-flex">
-                                            <a href="" class="btn btn-primary btn-sm"><i class="fa fa-eye"></i>Edit</a>
+                                            <a href="{{route('edit_user', $user->id)}}" class="btn btn-primary btn-sm"><i class="fa fa-eye"></i>Edit</a>
                                                 <span class="m-1 d-block"></span>
                                             <a href="{{route('delete_user', $user->id)}}" class="btn btn-danger btn-sm" id="delete"><i class="fa fa-eye"></i>Delete</a>
                                         </td>

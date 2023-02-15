@@ -80,6 +80,14 @@ class Admin_usersControllerer extends Controller
         return redirect()->route('manage_users')->with('success', 'User Deleted Successfully');
     }
 
+    //add admin form Page
+    public function Edit_user($id){
+
+        
+
+        return view('backend.admin_users.edit_user');
+    }
+
 
 
 }

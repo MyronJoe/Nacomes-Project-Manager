@@ -124,6 +124,9 @@ Route::middleware(['auth:sanctum', 'checkregister', config('jetstream.auth_sessi
     //delete admin users to database
     Route::get('/admin/users/delete/{id}', [Admin_usersControllerer::class, 'Delete_user'])->name('delete_user');
 
+    //delete admin users to database
+    Route::get('/admin/users/edit/{id}', [Admin_usersControllerer::class, 'Edit_user'])->name('edit_user');
+
 
 });
 
