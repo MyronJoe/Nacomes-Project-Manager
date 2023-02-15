@@ -18,6 +18,7 @@
           <div class="card-body">
             <div class="user-avatar-section">
               <div class="d-flex align-items-center flex-column">
+
                 <img
                   class="img-fluid rounded mt-3 mb-2"
                   src="../../../app-assets/images/portrait/small/avatar-s-2.jpg"
@@ -36,12 +37,25 @@
                     @if (Auth::user()->two_factor_secret)
                       @method('DELETE')
                     <button class="btn btn-danger">Disable</button>
-         
+                        <div class="py-2">
+                            {{-- <small>scan the qr code below</small> <br>  --}}
+                            {!! Auth::user()->twoFactorQrCodeSvg() !!}
+                        </div>
                     @else
 
                     <button class="btn btn-success">Enable</button>
 
                     @endif
+
+                    <br> <br>
+
+                    @if (session('status'))
+                     <div class="alert alert-success" role="alert">
+                             {{ session('status') }}
+                     </div>
+
+
+                @endif
 
                 </form>
                 </div>
