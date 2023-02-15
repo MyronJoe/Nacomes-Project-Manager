@@ -81,6 +81,61 @@
               </div>
             </div>
 
+<<<<<<< HEAD
+                    <div class="col-md-12 col-12">
+                        <div class="mb-2">
+                            <div class="form-group mb-1">
+                                <label class="mb-1">Project Year</label>
+                                  <select name="year" class="select2 form-select" id="select2-basic" required>
+                                    <option value="">Select Year</option>
+                                    @foreach($academics as  $data)
+                                    <option value="{{$data->session}}">{{$data->session}}</option>
+                                    @endforeach
+                                  </select>
+                                  @error('year')
+                                  <span class="text-danger">{{ $message }}</span>
+                                  @enderror
+                              </div>
+
+                        </div>
+                      </div>
+
+                      <div class="col-md-12 col-12">
+                        <div class="mb-2">
+                          <label class="form-label mb-1" >Student Name</label>
+     <input type="text" value="{{ $edit->student }}" class="form-control" placeholder="Student"
+                            name="student"
+                         required />
+                         @error('student')
+                         <span class="text-danger">{{ $message }}</span>
+                         @enderror
+                        </div>
+                      </div>
+
+
+                      <div class="col-md-12 col-12">
+                        <div class="mb-2">
+                          <label class="form-label mb-1" >Project Description</label>
+     <textarea name="description" id="editor" cols="10" rows="3" class="form-control" required>{{ $edit->description }}</textarea>
+     @error('description')
+     <span class="text-danger">{{ $message }}</span>
+     @enderror
+                        </div>
+                      </div>
+
+                      <div class="col-md-12 col-12">
+                        <div class="mb-2">
+                          <label class="form-label mb-1" >Project Old File: </label>
+                          {{ $edit->project_file }}
+     <input type="file" class="form-control" placeholder="Year"
+                            name="project_file"
+                          />
+                         @error('project_file')
+                         <span class="text-danger">{{ $message }}</span>
+                         @enderror
+                        </div>
+                      </div>
+=======
             <div class="col-md-12 col-12">
               <div class="mb-2">
                 <label class="form-label mb-1">Project Old File: </label>
@@ -91,6 +146,7 @@
                 @enderror
               </div>
             </div>
+>>>>>>> 41a30ec2c0d06daebc873330f8c2fac2ee0fe31c
 
 
 

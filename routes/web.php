@@ -64,6 +64,15 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session')])->group(fun
     //admin edit academics session page
     Route::get('/admin/academics/edit_session/{id}', [AdminController::class, 'Edit_session'])->name('edit_session');
 
+//admin profile
+Route::get('/admin/profile', [AdminController::class, 'AdminProfile'])->name('admin-profile');
+
+//admin update profile
+Route::post('/admin/profile/update/{id}', [AdminController::class, 'AdminProfileUpdate'])->name('admin-update-profile');
+
+//admin update password
+Route::post('/admin/password/update/{id}', [AdminController::class, 'AdminPasswordUpdate'])->name('admin-update-password');
+
 
     //admin update academics session in database
     Route::post('/admin/academics/update_session/{id}', [AdminController::class, 'Update_session'])->name('update_session');
@@ -81,7 +90,7 @@ Route::get('/download/now/{id}', [ProjectController::class, 'DownloadProjects'])
 
 
 //================PROJECT ALL ROUTES============================================
-Route::middleware(['auth:sanctum', 'checkregister', config('jetstream.auth_session')])->group(function () {
+Route::middleware(['auth:sanctum',  config('jetstream.auth_session')])->group(function () {
 
     //admin view projects
     Route::get('/admin/projects', [ProjectController::class, 'Projects'])->name('admin-view-project');
