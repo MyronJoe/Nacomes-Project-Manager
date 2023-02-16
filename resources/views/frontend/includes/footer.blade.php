@@ -5,7 +5,7 @@
                     <h4 class="text-white mb-3">Quick Link</h4>
                     <a class="btn btn-link" href="#">About Us</a>
                     <a class="btn btn-link" href="{{ route('contact') }}">Contact Us</a>
-                    <a class="btn btn-link" href="#">Privacy Policy</a>
+                    <a class="btn btn-link" href="{{ route('privacy') }}">Privacy Policy</a>
                     <a class="btn btn-link" href="#">Terms & Condition</a>
                     <a class="btn btn-link" href="#">FAQs & Help</a>
                 </div>
