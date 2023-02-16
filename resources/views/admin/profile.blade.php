@@ -38,7 +38,7 @@
                       @method('DELETE')
                     <button class="btn btn-danger">Disable</button>
                         <div class="py-2">
-                            {{-- <small>scan the qr code below</small> <br>  --}}
+                            <small>scan the qr code below</small> <br>
                             {!! Auth::user()->twoFactorQrCodeSvg() !!}
                         </div>
                     @else
