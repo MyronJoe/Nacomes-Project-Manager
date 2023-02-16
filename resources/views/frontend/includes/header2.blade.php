@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Mouau | Project Management</title>
+    <title>Mouau Computer Engineering Project Bank</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
     <meta content="" name="keywords">
@@ -218,7 +218,7 @@
             <a href="{{url('/')}}" class="nav-item nav-link active text-primary mb1">Home</a>
             <a href="about.html" class="nav-item nav-link ">About</a>
 
-            <a href="contact.html" class="nav-item nav-link">Contact</a>
+            <a href="{{ route('contact') }}" class="nav-item nav-link">Contact</a>
 
             @if (Route::has('login'))
 
