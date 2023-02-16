@@ -4,9 +4,10 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\Auth;
 
-class CheckAdmin
+class CheckSuperAdmin
 {
     /**
      * Handle an incoming request.
@@ -17,16 +18,10 @@ class CheckAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-
-      if(Auth::user()->user_type == 0){
-        $notification = session()->flash("error", "Access Denied");
-        return redirect()->back()->with($notification);
-           }
-      
-
-
-
-
+        if (Auth::user()->user_type != 2) {
+            $notification = session()->flash("error", "Access Denied");
+            return redirect()->back()->with($notification);
+        }
 
 
         return $next($request);

@@ -45,7 +45,13 @@
                         data-feather="check-square"></i><span class="menu-title text-truncate"
                         data-i18n="Todo">Academic Session</span></a></li>
 
-@if($admin != 2)
+
+
+<li class=" nav-item"><a class="d-flex align-items-center" href="{{ route('manage_users') }}"><i
+                        data-feather="users"></i><span class="menu-title text-truncate"
+                        data-i18n="users">Admins</span></a></li>
+
+<!-- @if($admin != 2)
 
 @else
 
@@ -54,7 +60,7 @@
                         data-i18n="users">Admins</span></a></li>
 
 
-@endif
+@endif -->
 
 
             <!-- <li class=" nav-item"><a class="d-flex align-items-center" href="{{ route('admin-profile') }}"><i

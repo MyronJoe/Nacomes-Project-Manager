@@ -1,5 +1,5 @@
 @php
-    $projects = App\Models\Backend\Project::latest()->get();
+    $projects = App\Models\Backend\Project::latest()->paginate(8);
 @endphp
 
 
