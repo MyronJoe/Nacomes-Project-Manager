@@ -1,3 +1,5 @@
+<!-- HEADER INCLUDE -->
+@include('frontend.includes.header2')
 
 <x-guest-layout>
     <x-jet-authentication-card>
@@ -35,3 +37,6 @@
         </form>
     </x-jet-authentication-card>
 </x-guest-layout>
+
+    <!-- Footer Start -->
+    @include('frontend.includes.footer')
