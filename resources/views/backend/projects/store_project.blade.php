@@ -22,7 +22,7 @@
       <div class="card-body">
 
 
-        <form class="form" action="{{ route('store-project') }}" method="POST" enctype="multipart/form-data">
+        <form class="form" action="{{ route('store-project') }}" method="POST" enctype="multipart/form-data" novalidate>
           @csrf
 
           <div class="row">
@@ -77,7 +77,7 @@
 
             <div class="col-md-12 col-12">
               <div class="mb-2">
-                <label class="form-label mb-1">Project File (.zip only)</label>
+                <label class="form-label mb-1">Project File (.pdf only)</label>
                 <input type="file" class="form-control" placeholder="Year" name="project_file" required />
                 @error('project_file')
                 <span class="text-danger">{{ $message }}</span>

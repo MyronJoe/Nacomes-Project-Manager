@@ -30,8 +30,8 @@ class ProjectController extends Controller
             'title' => ['required', 'string', 'min:3'],
             'year' => ['required', 'string'],
             'student' => ['required', 'string', 'min:3'],
-            'description' => ['required', 'string', 'min:3'],
-            'project_file' => ['required', 'file', 'mimes:zip'],
+            // 'description' => ['required', 'string', 'min:3'],
+            'project_file' => ['required', 'file', 'mimes:pdf'],
         ]);
 
 
@@ -128,7 +128,7 @@ class ProjectController extends Controller
                 'title' => ['required', 'string', 'min:3'],
                 'year' => ['required', 'string'],
                 'student' => ['required', 'string', 'min:3'],
-                'description' => ['required', 'string', 'min:3'],
+                // 'description' => ['required', 'string', 'min:3'],
             ]);
 
 
@@ -156,8 +156,8 @@ class ProjectController extends Controller
                 'title' => ['required', 'string', 'min:3'],
                 'year' => ['required', 'string'],
                 'student' => ['required', 'string', 'min:3'],
-                'description' => ['required', 'string', 'min:3'],
-                'project_file' => ['required', 'file', 'mimes:zip'],
+                // 'description' => ['required', 'string', 'min:3'],
+                'project_file' => ['required', 'file', 'mimes:pdf'],
             ]);
 
             //fine id
