@@ -1,4 +1,5 @@
-
+<!-- HEADER INCLUDE -->
+@include('frontend.includes.header2')
 
 
 
