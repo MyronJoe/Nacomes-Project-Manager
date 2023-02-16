@@ -4,7 +4,9 @@
     --light: #F0FBFC;
     --dark: #181d38;
 }
-
+.nav-item{
+    font-weight: bold !important;
+}
 .btn-primary{
     background-color: #3B840C !important;
     border: none !important;
