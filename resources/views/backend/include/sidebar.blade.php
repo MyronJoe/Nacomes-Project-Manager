@@ -1,3 +1,11 @@
+
+@php
+ $admin = Auth::user()->user_type;
+
+@endphp
+
+
+
 <div class="main-menu menu-fixed menu-dark menu-accordion menu-shadow" data-scroll-to-active="true">
     <div class="navbar-header">
         <ul class="nav navbar-nav flex-row">
@@ -37,10 +45,16 @@
                         data-feather="check-square"></i><span class="menu-title text-truncate"
                         data-i18n="Todo">Academic Session</span></a></li>
 
+@if($admin != 2)
 
-            <li class=" nav-item"><a class="d-flex align-items-center" href="{{ route('manage_users') }}"><i
+@else
+
+<li class=" nav-item"><a class="d-flex align-items-center" href="{{ route('manage_users') }}"><i
                         data-feather="users"></i><span class="menu-title text-truncate"
                         data-i18n="users">Admins</span></a></li>
+
+
+@endif
 
 
             <!-- <li class=" nav-item"><a class="d-flex align-items-center" href="{{ route('admin-profile') }}"><i

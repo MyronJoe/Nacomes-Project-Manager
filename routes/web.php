@@ -34,16 +34,18 @@ Route::post('/search-product', [SearchController::class, 'SearchProject'])->name
 
 
 //================ADMIN ALL ROUTES============================================
-Route::middleware(['auth:sanctum', config('jetstream.auth_session')])->group(function () {
-    //admin index
+
+//admin index
+Route::get('/home', [AdminController::class, 'Redirect'])->name('home');
+
+//admin logout route
+Route::get('/logout', [AdminController::class, 'logout'])->name('logout');
+
+
+Route::middleware(['auth:sanctum', 'checkadmin', config('jetstream.auth_session')])->group(function () {
+    
 
     //================ADMIN ALL ROUTES===========================================
-
-    Route::get('/home', [AdminController::class, 'Redirect'])->name('home');
-
-    //admin logout route
-    Route::get('/logout', [AdminController::class, 'logout'])->name('logout');
-
 
     //admin Manage academics session
     Route::get('/admin/academics', [AdminController::class, 'Academics'])->name('admin-academics');
@@ -90,7 +92,7 @@ Route::get('/download/now/{id}', [ProjectController::class, 'DownloadProjects'])
 
 
 //================PROJECT ALL ROUTES============================================
-Route::middleware(['auth:sanctum',  config('jetstream.auth_session')])->group(function () {
+Route::middleware(['auth:sanctum', 'checkadmin',  config('jetstream.auth_session')])->group(function () {
 
     //admin view projects
     Route::get('/admin/projects', [ProjectController::class, 'Projects'])->name('admin-view-project');
@@ -117,6 +119,14 @@ Route::middleware(['auth:sanctum',  config('jetstream.auth_session')])->group(fu
     //admin update projet projects
     Route::post('/admin/update/project/{id}', [ProjectController::class, 'AdminUpdateProjects'])->name('update-project');
 
+
+});
+
+
+
+
+
+Route::middleware(['auth:sanctum', 'checksuperadmin',  config('jetstream.auth_session')])->group(function () {
 
 
     //================ADMIN USERS ALL ROUTES============================================
