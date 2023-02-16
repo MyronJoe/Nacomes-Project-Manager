@@ -30,6 +30,12 @@ Route::get('/search', [SearchController::class, 'Search'])->name('search');
 //Search project show
 Route::post('/search-product', [SearchController::class, 'SearchProject'])->name('search-p');
 
+//contact page
+Route::get('/contact', function () {
+    return view('frontend.contact');
+})->name('contact');
+
+
 //================END FRONTEND ALL ROUTES============================================
 
 
@@ -43,7 +49,7 @@ Route::get('/logout', [AdminController::class, 'logout'])->name('logout');
 
 
 Route::middleware(['auth:sanctum', 'checkadmin', config('jetstream.auth_session')])->group(function () {
-    
+
 
     //================ADMIN ALL ROUTES===========================================
 

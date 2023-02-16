@@ -9,7 +9,7 @@
                             <div class="col-sm-10 col-lg-8">
                                 <h5 class="text-change text-uppercase mb-3 animated slideInDown">Mouau Computer Engineering Project Bank</h5>
                                 <h1 class="display-3 text-white animated slideInDown">Students' Project Repository</h1>
-                                <p class="fs-5 text-white mb-4 pb-2"></p>
+                                <p class="fs-5 text-white mb-4 pb-2">Every projects has it's challenges and every project has it's rewards.</p>
                                 <a href="{{ url('/#project') }}" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Projects</a>
                                 <a href="{{ url('/#search') }}" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Search</a>
                             </div>
@@ -25,7 +25,7 @@
                             <div class="col-sm-10 col-lg-8">
                                 <h5 class="text-change text-uppercase mb-3 animated slideInDown">Mouau Computer Engineering Project Bank</h5>
                                 <h1 class="display-3 text-white animated slideInDown">Students' Project Repository</h1>
-                                <p class="fs-5 text-white mb-4 pb-2">Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea sanctus eirmod elitr.</p>
+                                <p class="fs-5 text-white mb-4 pb-2">A creative project is a moving target. It never end up where it starts.</p>
                                 <a href="{{ url('/#project') }}" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Projects</a>
                                 <a href="{{ url('/#search') }}" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Search</a>
                             </div>
