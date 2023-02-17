@@ -216,7 +216,8 @@
 
         <div class="menu-list">
             <a href="{{url('/')}}" class="nav-item nav-link active text-primary mb1">Home</a>
-            <a href="about.html" class="nav-item nav-link ">About</a>
+            
+            <a href="#" class="nav-item nav-link ">About</a>
 
             <a href="{{ route('contact') }}" class="nav-item nav-link">Contact</a>
 
