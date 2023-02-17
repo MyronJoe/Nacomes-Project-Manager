@@ -50,8 +50,8 @@
                             <i class="fa fa-map-marker-alt text-white"></i>
                         </div>
                         <div class="ms-3">
-                            <h5 class="text-primary">Office</h5>
-                            <p class="mb-0">123 Street, New York, USA</p>
+                            <h5 class="text-primary">Address</h5>
+                            <p class="mb-0">Michael Okpara University of Agriculture</p>
                         </div>
                     </div>
                     <div class="d-flex align-items-center mb-3">
@@ -69,7 +69,7 @@
                         </div>
                         <div class="ms-3">
                             <h5 class="text-primary">Email</h5>
-                            <p class="mb-0">info@example.com</p>
+                            <p class="mb-0">Info@mouaucmeprojectbank.com</p>
                         </div>
                     </div>
                 </div>
