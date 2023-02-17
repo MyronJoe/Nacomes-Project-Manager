@@ -26,6 +26,12 @@ class AdminController extends Controller
         }
     }
 
+    //Privacy policy page
+    public function Privacy(){
+
+        return view('frontend.privacy');
+    }
+
     //Admin Logout Function
     public function logout(Request $request)
     {

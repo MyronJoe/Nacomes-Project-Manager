@@ -41,6 +41,9 @@ Route::get('/home', [AdminController::class, 'Redirect'])->name('home');
 //admin logout route
 Route::get('/logout', [AdminController::class, 'logout'])->name('logout');
 
+//Privacy Policy Page Route
+Route::get('/privacy', [AdminController::class, 'Privacy'])->name('privacy');
+
 
 Route::middleware(['auth:sanctum', 'checkadmin', config('jetstream.auth_session')])->group(function () {
     
